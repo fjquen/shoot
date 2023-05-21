@@ -30,8 +30,9 @@ class Main < Gosu::Window
         end
         @legion.tabLegion.each_with_index do | element, x |
             @legion.tabLegion.each_with_index do | element, y |
-                if Gosu.distance(@legion.tabLegion[x]['x'],@legion.tabLegion[y]['y'], @player.x_fire, @player.y_fire) < 40
+                if Gosu.distance(@legion.tabLegion[x]['x'],@legion.tabLegion[y]['y'], @player.x_fire, @player.y_fire) < 25
                     @legion.tabLegion[x]['existence']= false
+                    @player.visibleBeam(false)
                 end
             end
         end
