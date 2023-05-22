@@ -36,7 +36,7 @@ class Legion < Gosu::Window
 
     def move_forward
       @tabLegion.length.times { |i|
-        if @tabLegion[i]['y'] < 400
+        if @tabLegion[i]['y'] < 430
           @tabLegion[i]['y'] += 1
         else
           return @tabLegion[i]['y']
