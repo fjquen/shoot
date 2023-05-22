@@ -16,7 +16,7 @@ class Player < Gosu::Window
     end
 
     def move_right
-        if @x < 550
+        if @x < 570
             @x += 7
             @x_fire += 7
         else
@@ -25,7 +25,7 @@ class Player < Gosu::Window
     end
 
     def move_left
-        if @x > 32
+        if @x > 10
             @x -= 7
             @x_fire -= 7
         else

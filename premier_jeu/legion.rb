@@ -8,7 +8,7 @@ class Legion < Gosu::Window
         @obj = {}
         @nameFailed = Array.new
         @tabLegion = Array.new
-        @tabNameLegion = ["red","purple","black","blue","fushio","baba","elvis"]
+        @tabNameLegion = ["red","purple","black","blue","fushio","baba","elvis", "sidjey", "no_respect"]
 
     end
 
@@ -21,7 +21,7 @@ class Legion < Gosu::Window
                         }
       end
     end
-    
+
     def create_legion_of_ennemy
         for n in 0..@tabNameLegion.length
             @tabLegion<<{
