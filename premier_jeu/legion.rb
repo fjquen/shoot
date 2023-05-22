@@ -18,7 +18,7 @@ class Legion < Gosu::Window
                             i['x']=rand(150..500)
                             i['y']= rand(100)
                             i['existence']=true 
-                        }
+                       }
       end
     end
 
