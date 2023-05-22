@@ -1,5 +1,7 @@
 require 'gosu'
 
+
+
 class Player < Gosu::Window
     attr_accessor :x_fire, :y_fire,:y,:x, :boolSpatialship
     def initialize
@@ -15,8 +17,8 @@ class Player < Gosu::Window
         @x_fire, @y_fire = x + 10, y+10
     end
 
-    def move_right
-        if @x < 570
+    def move_right 
+        if @x < 570 && @boolSpatialship == true
             @x += 7
             @x_fire += 7
         else
@@ -25,9 +27,9 @@ class Player < Gosu::Window
     end
 
     def move_left
-        if @x > 10
+        if @x > 10 && @boolSpatialship == true
             @x -= 7
-            @x_fire -= 7
+            @x_fire -= 7 
         else
             return @x
         end
@@ -40,10 +42,11 @@ class Player < Gosu::Window
     def returnFire
         return @y_fire = @y
     end
-
+    
     def visibleBeam(bool)
         @bool = bool
     end
+
     def draw
         if @boolSpatialship
             @spacePlayer.draw(@x,@y,0)

@@ -2,6 +2,7 @@ require 'gosu'
 require './player.rb'
 require './legion.rb'
 
+
 class Main < Gosu::Window
     def initialize
         super 640,480
@@ -32,6 +33,8 @@ class Main < Gosu::Window
             @legion.tabLegion.each_with_index do | element, y |
                 if Gosu.distance(@legion.tabLegion[x]['x'],@legion.tabLegion[y]['y'], @player.x_fire, @player.y_fire) < 25
                     @legion.tabLegion[x]['existence']= false
+                elsif Gosu.distance(@legion.tabLegion[x]['x'],@legion.tabLegion[y]['y'], @player.x, @player.y) < 25
+                    @player.boolSpatialship = false
                 end
             end
         end
