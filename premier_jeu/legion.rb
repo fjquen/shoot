@@ -8,7 +8,7 @@ class Legion < Gosu::Window
         @obj = {}
         @nameFailed = Array.new
         @tabLegion = Array.new
-        @tabNameLegion = ["red","purple","black","blue","fushio"]
+        @tabNameLegion = ["red","purple","black","blue","fushio","baba","elvis"]
 
     end
 
@@ -21,10 +21,11 @@ class Legion < Gosu::Window
                         }
       end
     end
+    
     def create_legion_of_ennemy
-        for n in 0..5
+        for n in 0..@tabNameLegion.length
             @tabLegion<<{
-              'x'  => rand(150..400),
+              'x'  => rand(150..600),
               'y' => rand(100),
               'color'=> Gosu::Color::RED.dup,
               'existence'=>true,
