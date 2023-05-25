@@ -9,7 +9,7 @@ class Legion < Gosu::Window
         @nameFailed = Array.new
         @tabLegion = Array.new
         @tabNameLegion = ["red","purple","black","blue","fushio","baba","elvis", "sidjey", "no_respect"]
-
+        @count_failed = 0
     end
 
     def back_again_legion
@@ -43,8 +43,7 @@ class Legion < Gosu::Window
         end
       }
     end
-    
-
+   
     def draw(x,y,color)
        @legion.draw(x,y,0,1,1,color)
     end

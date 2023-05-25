@@ -3,7 +3,7 @@ require 'gosu'
 
 
 class Player < Gosu::Window
-    attr_accessor :x_fire, :y_fire,:y,:x, :boolSpatialship
+    attr_accessor :x_fire, :y_fire,:y,:x, :boolSpatialship, :bool
     def initialize
         @spacePlayer = Gosu::Image.new("media/player.png", :tileable => true)
         @fireBeam = Gosu::Image.new("media/Fire-icon.png", :tileable => true)
@@ -36,7 +36,9 @@ class Player < Gosu::Window
     end
 
     def fire
+         if @boolSpatialship == true
             @y_fire -= 70
+         end
     end
 
     def returnFire
@@ -52,7 +54,7 @@ class Player < Gosu::Window
             @spacePlayer.draw(@x,@y,0)
         end
 
-        if @bool
+        if @bool && @boolSpatialship
             @fireBeam.draw(@x_fire,@y_fire,0)
         end
     end
