@@ -1,7 +1,7 @@
 require 'gosu'
 
 class Legion < Gosu::Window
-    attr_accessor :tabLegion, :beamEnnemy, :nameFailed, :niveau_x, :niveau_y
+    attr_accessor :tabLegion, :beamEnnemy, :nameFailed, :niveau_x, :niveau_y,:count_failed
     def initialize
         @legion = Gosu::Image.new("media/ennemy.bmp", :tileable => true)
         @start_time=Gosu.milliseconds
@@ -10,10 +10,15 @@ class Legion < Gosu::Window
         @tabLegion = Array.new
         @tabNameLegion = ["red","purple","black","blue","fushio","baba","elvis", "sidjey", "no_respect"]
         @count_failed = 0
+        @test = 0
     end
 
     def back_again_legion
       if @tabLegion.all? { |word| word["existence"] == false }
+        @count_failed += 1
+        puts @count_failed
+        @test += tabLegion.length
+        puts @test
          @tabLegion.map{|i| 
                             i['x']=rand(150..500)
                             i['y']= rand(100)
