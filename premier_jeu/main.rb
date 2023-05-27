@@ -4,15 +4,16 @@ require './legion.rb'
 
 
 class Main < Gosu::Window
+    
     def initialize
         super 640,480
         self.caption = "premier jeu"
-        @background_image = Gosu::Image.new("media/niveau1.jpg", :tileable => true)
         @player = Player.new
         @player.warp(32,400)
         @bool =true
         @legion = Legion.new
         @legion.create_legion_of_ennemy
+        @background_image = Gosu::Image.new(@legion.level_background[@legion.chgt_decor]["source"], :tileable => true)
     end
     
     def update
@@ -38,13 +39,13 @@ class Main < Gosu::Window
                 end
             end
         end
-        
-        
          @legion.move_forward
          @legion.back_again_legion
+         @background_image = Gosu::Image.new(@legion.level_background[@legion.chgt_decor]["source"], :tileable => true)
     end
+   
     def draw
-        @background_image.draw(0, 0, 0)
+        @background_image.draw(140,15,0)
         @player.draw
         @legion.tabLegion.length.times { |i|
             if @legion.tabLegion[i]['existence'] == true

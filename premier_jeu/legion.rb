@@ -1,19 +1,23 @@
 require 'gosu'
-require './player.rb'
+
 
 class Legion < Gosu::Window
-    attr_accessor :tabLegion, :beamEnnemy, :nameFailed, :niveau_x, :niveau_y
+    attr_accessor :tabLegion, :beamEnnemy, :nameFailed, :niveau_x, :niveau_y, :chgt_decor, :level_background
     def initialize
         @legion = Gosu::Image.new("media/ennemy.bmp", :tileable => true)
         @obj = {}
         @nameFailed = Array.new
         @tabLegion = Array.new
         @tabNameLegion = ["red","purple","black","blue","fushio","baba","elvis", "sidjey", "no_respect"]
+        @chgt_decor = 0
+        @level_background = [{"source"=>"media/sky.jpg"},{"source"=>"media/m_sky_darkness (1).png"}]
     end
 
         
     def back_again_legion
       if @tabLegion.all? { |word| word["existence"] == false }
+        @chgt_decor +=1
+        @legion = Gosu::Image.new("media/Fire-icon.png", :tileable => true)
          @tabLegion.map{|i| 
                             i['x']=rand(150..500)
                             i['y']= rand(100)
@@ -45,6 +49,7 @@ class Legion < Gosu::Window
     end
    
     def draw(x,y,color)
+      
        @legion.draw(x,y,0,1,1,color)
     end
 end
