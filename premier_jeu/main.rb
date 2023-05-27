@@ -39,6 +39,7 @@ class Main < Gosu::Window
             end
         end
         
+        
          @legion.move_forward
          @legion.back_again_legion
     end
