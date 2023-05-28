@@ -35,21 +35,29 @@ class Main < Gosu::Window
                 if Gosu.distance(@legion.tabLegion[x]['x'],@legion.tabLegion[y]['y'], @player.x_fire, @player.y_fire) < 25
                     @legion.tabLegion[x]['existence']= false
                 elsif Gosu.distance(@legion.tabLegion[x]['x'],@legion.tabLegion[y]['y'], @player.x, @player.y) < 25
-                    @player.boolSpatialship = false
+                    close
                 end
             end
         end
          @legion.move_forward
          @legion.back_again_legion
-         @background_image = Gosu::Image.new(@legion.level_background[@legion.chgt_decor]["source"], :tileable => true)
+        if @legion.chgt_decor >= @legion.level_background.length
+            close
+        else
+            @background_image = Gosu::Image.new(@legion.level_background[@legion.chgt_decor]["source"], :tileable => true)
+        end
     end
    
     def draw
-        @background_image.draw(140,15,0)
+        if @legion.chgt_decor >= @legion.level_background.length
+            close
+        else
+            @background_image.draw(@legion.level_background[@legion.chgt_decor]["x"],@legion.level_background[@legion.chgt_decor]["y"],0)
+        end
         @player.draw
         @legion.tabLegion.length.times { |i|
             if @legion.tabLegion[i]['existence'] == true
-                @legion.draw(@legion.tabLegion[i]['x'],@legion.tabLegion[i]['y'],@legion.tabLegion[i]['color'])
+                @legion.draw(@legion.tabLegion[i]['x'],@legion.tabLegion[i]['y'])
             end
         }
     end

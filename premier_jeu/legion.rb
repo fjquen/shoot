@@ -10,14 +10,14 @@ class Legion < Gosu::Window
         @tabLegion = Array.new
         @tabNameLegion = ["red","purple","black","blue","fushio","baba","elvis", "sidjey", "no_respect"]
         @chgt_decor = 0
-        @level_background = [{"source"=>"media/sky.jpg"},{"source"=>"media/m_sky_darkness (1).png"}]
+        @level_background = [{"source"=>"media/sky.jpg","x"=>140,"y"=>15},{"source"=>"media/m_sky_darkness (1).png","x"=>100,"y"=>15}]
     end
 
         
     def back_again_legion
       if @tabLegion.all? { |word| word["existence"] == false }
         @chgt_decor +=1
-        @legion = Gosu::Image.new("media/Fire-icon.png", :tileable => true)
+        @legion = Gosu::Image.new("media/ennemy.png", :tileable => true)
          @tabLegion.map{|i| 
                             i['x']=rand(150..500)
                             i['y']= rand(100)
@@ -31,7 +31,6 @@ class Legion < Gosu::Window
             @tabLegion<<{
               'x'  => rand(150..600),
               'y' => rand(100),
-              'color'=> Gosu::Color::RED.dup,
               'existence'=>true,
               'name'=> @tabNameLegion[n]
               }
@@ -48,8 +47,8 @@ class Legion < Gosu::Window
       }
     end
    
-    def draw(x,y,color)
+    def draw(x,y)
       
-       @legion.draw(x,y,0,1,1,color)
+       @legion.draw(x,y,0)
     end
 end
