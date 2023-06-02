@@ -2,7 +2,7 @@ require 'gosu'
 
 
 
-class Player < Gosu::Window
+class Player
     attr_accessor :x_fire, :y_fire,:y,:x, :bool
     def initialize
         @spacePlayer = Gosu::Image.new("media/player.png", :tileable => true)

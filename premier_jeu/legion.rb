@@ -1,7 +1,7 @@
 require 'gosu'
 
 
-class Legion < Gosu::Window
+class Legion
     attr_accessor :tabLegion, :beamEnnemy, :nameFailed, :niveau_x, :niveau_y, :chgt_decor, :level_background
     def initialize
         @legion = Gosu::Image.new("media/ennemy.bmp", :tileable => true)

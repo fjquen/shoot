@@ -1,7 +1,8 @@
 require 'gosu'
 require './player.rb'
 require './legion.rb'
-
+require './lose.rb'
+require './ending.rb'
 
 class Main < Gosu::Window
     
@@ -14,6 +15,10 @@ class Main < Gosu::Window
         @legion = Legion.new
         @legion.create_legion_of_ennemy
         @background_image = Gosu::Image.new(@legion.level_background[@legion.chgt_decor]["source"], :tileable => true)
+        @lose = Lose.new
+        @ending = Ending.new
+        @lose_bool = false
+        @ending_bool = false
     end
     
     def update
@@ -35,28 +40,34 @@ class Main < Gosu::Window
                 if Gosu.distance(@legion.tabLegion[x]['x'],@legion.tabLegion[y]['y'], @player.x_fire, @player.y_fire) < 25
                     @legion.tabLegion[x]['existence']= false
                 elsif Gosu.distance(@legion.tabLegion[x]['x'],@legion.tabLegion[y]['y'], @player.x, @player.y) < 25
-                    close
+                    @lose_bool = true
                 end
             end
         end
          @legion.move_forward
          @legion.back_again_legion
         if @legion.chgt_decor >= @legion.level_background.length
-            close
+            @ending_bool = true
         else
             @background_image = Gosu::Image.new(@legion.level_background[@legion.chgt_decor]["source"], :tileable => true)
         end
     end
    
     def draw
+        if @lose_bool == true
+            @lose.draw
+        end
         if @legion.chgt_decor >= @legion.level_background.length
-            close
+            @ending.draw
         else
             @background_image.draw(@legion.level_background[@legion.chgt_decor]["x"],@legion.level_background[@legion.chgt_decor]["y"],0)
         end
-        @player.draw
+        if @lose_bool == false && @ending_bool == false
+          @player.draw
+        end
+        
         @legion.tabLegion.length.times { |i|
-            if @legion.tabLegion[i]['existence'] == true
+            if @legion.tabLegion[i]['existence'] == true && @lose_bool == false && @ending_bool == false
                 @legion.draw(@legion.tabLegion[i]['x'],@legion.tabLegion[i]['y'])
             end
         }
