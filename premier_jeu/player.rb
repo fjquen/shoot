@@ -3,12 +3,11 @@ require 'gosu'
 
 
 class Player
-    attr_accessor :x_fire, :y_fire,:y,:x, :bool
+    attr_accessor :x_fire, :y_fire,:y,:x
     def initialize
         @spacePlayer = Gosu::Image.new("media/player.png", :tileable => true)
         @fireBeam = Gosu::Image.new("media/Fire-icon.png", :tileable => true)
         @x=@y=@x_fire=@y_fire = 0.0
-        @bool = false
     end
 
     def warp(x, y)

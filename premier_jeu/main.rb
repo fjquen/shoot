@@ -11,7 +11,6 @@ class Main < Gosu::Window
         self.caption = "premier jeu"
         @player = Player.new
         @player.warp(32,400)
-        @bool =true
         @legion = Legion.new
         @legion.create_legion_of_ennemy
         @background_image = Gosu::Image.new(@legion.level_background[@legion.chgt_decor]["source"], :tileable => true)
@@ -40,6 +39,8 @@ class Main < Gosu::Window
                 if Gosu.distance(@legion.tabLegion[x]['x'],@legion.tabLegion[y]['y'], @player.x_fire, @player.y_fire) < 25
                     @legion.tabLegion[x]['existence']= false
                 elsif Gosu.distance(@legion.tabLegion[x]['x'],@legion.tabLegion[y]['y'], @player.x, @player.y) < 25
+                    @lose_bool = true
+                elsif @legion.tabLegion[y]['y'] >= 430
                     @lose_bool = true
                 end
             end
