@@ -36,7 +36,7 @@ class Main < Gosu::Window
         end
         @legion.tabLegion.each_with_index do | element, x |
             @legion.tabLegion.each_with_index do | element, y |
-                if Gosu.distance(@legion.tabLegion[x]['x'],@legion.tabLegion[y]['y'], @player.x_fire, @player.y_fire) < 25
+                if Gosu.distance(@legion.tabLegion[x]['x'],@legion.tabLegion[y]['y'], @player.x_fire, @player.y_fire) < 35
                     @legion.tabLegion[x]['existence']= false
                 elsif Gosu.distance(@legion.tabLegion[x]['x'],@legion.tabLegion[y]['y'], @player.x, @player.y) < 25
                     @lose_bool = true

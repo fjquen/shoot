@@ -6,13 +6,13 @@ class Player
     attr_accessor :x_fire, :y_fire,:y,:x
     def initialize
         @spacePlayer = Gosu::Image.new("media/playerShip1_blue.png", :tileable => true)
-        @fireBeam = Gosu::Image.new("media/Fire-icon.png", :tileable => true)
+        @fireBeam = Gosu::Image.new("media/laserRed05.png", :tileable => true)
         @x=@y=@x_fire=@y_fire = 0.0
     end
 
     def warp(x, y)
         @x, @y = x, y
-        @x_fire, @y_fire = x + 10, y+10
+        @x_fire, @y_fire = x + 28, y+28
     end
 
     def move_right 
