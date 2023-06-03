@@ -4,20 +4,20 @@ require 'gosu'
 class Legion
     attr_accessor :tabLegion, :beamEnnemy, :nameFailed, :niveau_x, :niveau_y, :chgt_decor, :level_background
     def initialize
-        @legion = Gosu::Image.new("media/ennemy.bmp", :tileable => true)
+        @legion = Gosu::Image.new("media/enemyRed1.png", :tileable => true)
         @obj = {}
         @nameFailed = Array.new
         @tabLegion = Array.new
         @tabNameLegion = ["red","purple","black","blue","fushio","baba","elvis", "sidjey", "no_respect"]
         @chgt_decor = 0
-        @level_background = [{"source"=>"media/sky.jpg","x"=>140,"y"=>15},{"source"=>"media/m_sky_darkness (1).png","x"=>100,"y"=>15}]
+        @level_background = [{"source"=>"media/blue.png","x"=>190,"y"=>100},{"source"=>"media/darkPurple.png","x"=>190,"y"=>100}]
     end
 
         
     def back_again_legion
       if @tabLegion.all? { |word| word["existence"] == false }
         @chgt_decor +=1
-        @legion = Gosu::Image.new("media/ennemy.png", :tileable => true)
+        @legion = Gosu::Image.new("media/enemyGreen3.png", :tileable => true)
          @tabLegion.map{|i| 
                             i['x']=rand(150..500)
                             i['y']= rand(100)
