@@ -5,8 +5,8 @@ require 'gosu'
 class Player
     attr_accessor :x_fire, :y_fire,:y,:x
     def initialize
-        @spacePlayer = Gosu::Image.new("media/playerShip1_blue.png", :tileable => true)
-        @fireBeam = Gosu::Image.new("media/laserRed05.png", :tileable => true)
+        @spacePlayer = Gosu::Image.new("media/playerShip1_blue.png")
+        @fireBeam = Gosu::Image.new("media/laserRed05.png")
         @x=@y=@x_fire=@y_fire = 0.0
     end
 
