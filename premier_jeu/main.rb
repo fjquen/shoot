@@ -26,6 +26,18 @@ class Main < Gosu::Window
     def update
         
     end
+
+    def button_down(id)
+        case id
+        when Gosu::KB_RIGHT,Gosu::GP_RIGHT
+            
+        when Gosu::KB_LEFT,Gosu::GP_LEFT
+            
+        else
+            
+        end
+        
+    end
    
     def draw
        draw_area
