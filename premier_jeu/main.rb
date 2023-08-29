@@ -33,8 +33,6 @@ class Main < Gosu::Window
             
         when Gosu::KB_LEFT,Gosu::GP_LEFT
             
-        else
-            
         end
         
     end
