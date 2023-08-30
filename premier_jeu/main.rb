@@ -3,7 +3,12 @@ require './move_game.rb'
 
 class Main < Gosu::Window
     include Move_game
-   
+    PLAYER = "§"
+    ENNEMY = "°"
+    VOID = " "
+    WIDTH_TILE = 55
+    HEIGHT_TILE = 55
+
     def initialize
         super 640,480
         self.caption = "premier jeu"
@@ -27,9 +32,9 @@ class Main < Gosu::Window
     def button_down(id)
         case id
         when Gosu::KB_RIGHT,Gosu::GP_RIGHT
-            move_right()
+            move_right(PLAYER)
         when Gosu::KB_LEFT,Gosu::GP_LEFT
-            move_left()
+            move_left(PLAYER)
         end
         
     end
