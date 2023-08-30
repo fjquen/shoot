@@ -19,8 +19,9 @@ class Main < Gosu::Window
                         [" ","°"," "," "," "," "," "," "," ",],
                         [" "," "," "," "," "," "," "," "," ",],
                         [" "," "," "," "," "," "," "," "," ",],
-                        ["§"," "," "," "," "," "," "," "," ",]]
+                        [" "," "," "," ","§"," "," "," "," ",]]
         @player = Gosu::Image.new("media/playerShip1_blue.png")
+        @ennemy = Gosu::Image.new("media/enemyRed1.png")
     end
     
     def update
@@ -48,6 +49,8 @@ class Main < Gosu::Window
                     Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::BLACK)
                 elsif @area_combat[y][x] == PLAYER
                     @player.draw(x*WIDTH_TILE_PLAYER, y*HEIGHT_TILE_PLAYER)
+                elsif @area_combat[y][x] == ENNEMY
+                    @ennemy.draw(x*WIDTH_TILE_PLAYER, y*HEIGHT_TILE_PLAYER)
                 end
             end
         end
