@@ -12,12 +12,8 @@ module Move_game
         col_player = pos_row_player % pos_col_player
         @x = col_player
         @x += 1
-        # @area_combat.each_index do |y|
-        #     @area_combat[y].each_index do |x|
-        #         return if 
-        #             @area_combat[y][@x],@area_combat[y][x] = @area_combat[y][x],@area_combat[y][@x]
-        #     end
-        # end
+        return if @area_combat[row_player][@x] > VOID
+        @area_combat[row_player][col_player],@area_combat[row_player][@x] = @area_combat[row_player][@x],@area_combat[row_player][col_player]
     end
 
     def move_left()
@@ -27,8 +23,8 @@ module Move_game
         col_player = pos_row_player % pos_col_player
         @x = col_player
         @x -= 1
-        
-        return if @x >= 0
-            @area_combat[row_player][col_player],@area_combat[row_player][@x] = @area_combat[row_player][@x],@area_combat[row_player][col_player]
+        puts @x
+        return if @area_combat[row_player][@x] < VOID
+        @area_combat[row_player][col_player],@area_combat[row_player][@x] = @area_combat[row_player][@x],@area_combat[row_player][col_player]
     end
 end
