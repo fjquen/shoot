@@ -7,16 +7,16 @@ class Main < Gosu::Window
     VOID = " "
     WIDTH_TILE = 55
     HEIGHT_TILE = 55
-    WIDTH_TILE_PLAYER = 65
-    HEIGHT_TILE_PLAYER = 65
+   
 
     def initialize
         super 640,480
         self.caption = "premier jeu"
         @area_combat = [[" "," "," "," "," "," "," "," "," ",],
                         [" ","°"," "," "," "," ","°"," "," ",],
-                        [" "," "," ","°"," "," "," "," "," ",],
+                        [" "," "," "," ","°"," "," "," "," ",],
                         [" ","°"," "," "," "," "," "," "," ",],
+                        [" "," "," "," "," "," "," "," "," ",],
                         [" "," "," "," "," "," "," "," "," ",],
                         [" "," "," "," "," "," "," "," "," ",],
                         [" "," "," "," ","§"," "," "," "," ",]]
@@ -48,9 +48,9 @@ class Main < Gosu::Window
                 if @area_combat[y][x] == VOID
                     Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::BLACK)
                 elsif @area_combat[y][x] == PLAYER
-                    @player.draw(x*WIDTH_TILE_PLAYER, y*HEIGHT_TILE_PLAYER)
+                    @player.draw(x*WIDTH_TILE, y*HEIGHT_TILE,1)
                 elsif @area_combat[y][x] == ENNEMY
-                    @ennemy.draw(x*WIDTH_TILE_PLAYER, y*HEIGHT_TILE_PLAYER)
+                    @ennemy.draw(x*WIDTH_TILE, y*HEIGHT_TILE,1)
                 end
             end
         end
