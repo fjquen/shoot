@@ -1,21 +1,16 @@
 require 'gosu'
-
+require './move_game.rb'
 
 class Main < Gosu::Window
-    PLAYER = "§"
-    ENNEMY = "°"
-    VOID = " "
-    WIDTH_TILE = 55
-    HEIGHT_TILE = 55
+    include Move_game
    
-
     def initialize
         super 640,480
         self.caption = "premier jeu"
         @area_combat = [[" "," "," "," "," "," "," "," "," ",],
-                        [" ","°"," "," "," "," ","°"," ","°",],
+                        [" ","°"," "," "," "," ","°"," ","°"," ","°",],
                         [" "," "," "," ","°"," "," "," "," ",],
-                        [" ","°"," "," "," "," "," ","°"," ",],
+                        [" ","°"," "," "," "," "," ","°"," ","°",],
                         [" "," "," "," "," "," "," "," "," ",],
                         [" "," "," "," "," "," "," "," "," ",],
                         [" "," "," "," "," "," "," "," "," ",],
@@ -31,18 +26,18 @@ class Main < Gosu::Window
     def button_down(id)
         case id
         when Gosu::KB_RIGHT,Gosu::GP_RIGHT
-            
+            move_right()
         when Gosu::KB_LEFT,Gosu::GP_LEFT
-            
+            move_left()
         end
         
     end
    
     def draw
-       draw_area
+       draw_area()
     end
 
-    def draw_area
+    def draw_area()
         @area_combat.each_index do |y|
             @area_combat[y].each_index do |x|
                 if @area_combat[y][x] == VOID
