@@ -17,6 +17,7 @@ class Main < Gosu::Window
                         [" "," "," "," ","§"," "," "," "," ",]]
         @player = Gosu::Image.new("media/playerShip1_blue.png")
         @ennemy = Gosu::Image.new("media/enemyRed1.png")
+        @x=@y=0
     end
     
     def update
