@@ -7,5 +7,9 @@ module Beam
         col_player = pos_row_player % pos_col_player
         @y = row_player
         @y -= 1
+        @area_combat.each_index do |y|
+            @area_combat[y].each_index do |x|
+            end
+        end
     end
 end
