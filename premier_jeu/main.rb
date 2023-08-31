@@ -1,5 +1,6 @@
 require 'gosu'
 require './move_game.rb'
+require './beam.rb'
 
 class Main < Gosu::Window
     include Move_game
@@ -17,6 +18,7 @@ class Main < Gosu::Window
                         [" "," "," "," ","§"," "," "," "," "," "," ",]]
         @player = Gosu::Image.new("media/playerShip1_blue.png")
         @ennemy = Gosu::Image.new("media/enemyRed1.png")
+        @beam = Gosu::Image.new("media/laserRed05.png")
         @x=@y=0
     end
     
@@ -46,6 +48,8 @@ class Main < Gosu::Window
                     @player.draw(x*WIDTH_TILE, y*HEIGHT_TILE,1)
                 elsif @area_combat[y][x] == ENNEMY
                     @ennemy.draw(x*WIDTH_TILE, y*HEIGHT_TILE,1)
+                elsif @area_combat[y][x] == BEAM
+                    @beam.draw(x*WIDTH_TILE, y*HEIGHT_TILE,1)
                 end
             end
         end

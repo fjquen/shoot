@@ -1,0 +1,3 @@
+module Beam
+    BEAM = "|"
+end
