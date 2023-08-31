@@ -12,7 +12,7 @@ module Move_game
         col_player = pos_row_player % pos_col_player
         @x = col_player
         @x += 1
-        return if @area_combat[row_player][@x] > VOID
+        return if @area_combat[row_player][@x] < VOID
         @area_combat[row_player][col_player],@area_combat[row_player][@x] = @area_combat[row_player][@x],@area_combat[row_player][col_player]
     end
 
@@ -23,7 +23,6 @@ module Move_game
         col_player = pos_row_player % pos_col_player
         @x = col_player
         @x -= 1
-        puts @x
         return if @area_combat[row_player][@x] < VOID
         @area_combat[row_player][col_player],@area_combat[row_player][@x] = @area_combat[row_player][@x],@area_combat[row_player][col_player]
     end
