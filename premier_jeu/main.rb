@@ -34,7 +34,7 @@ class Main < Gosu::Window
         when Gosu::KB_LEFT,Gosu::GP_LEFT
             move_left()
         when Gosu::KB_SPACE,Gosu::GP_BUTTON_1
-            move_beam()
+            move_beam(PLAYER)
         end
     end
    
