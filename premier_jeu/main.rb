@@ -4,6 +4,7 @@ require './beam.rb'
 
 class Main < Gosu::Window
     include Move_game
+    include Beam
 
     def initialize
         super 640,480
@@ -32,6 +33,8 @@ class Main < Gosu::Window
             move_right()
         when Gosu::KB_LEFT,Gosu::GP_LEFT
             move_left()
+        when Gosu::KB_SPACE,Gosu::GP_BUTTON_1
+            move_beam()
         end
     end
    
