@@ -52,9 +52,9 @@ class Main < Gosu::Window
                 elsif @area_combat[y][x] == ENNEMY
                     @ennemy.draw(x*WIDTH_TILE, y*HEIGHT_TILE,1)
                 elsif @area_combat[y][x] == BEAM
-                    @beam.draw(x*WIDTH_TILE, y*HEIGHT_TILE,1)
+                    Gosu.draw_rect(x*WIDTH_TILE+POSITION_BEAM, y*HEIGHT_TILE, WIDTH_TILE_BEAM, HEIGHT_TILE_BEAM,Gosu::Color::RED)
                 end
-            end
+            end 
         end
     end
 end
