@@ -15,6 +15,13 @@ module Beam
                 if @area_combat[@y][col_player] == void
                     if col_player==x && y==@y
                         @area_combat[@y][x] = BEAM
+                        i = 0
+                        loop do
+                        break if i == y
+                        i = i + 1
+                        puts y
+                        @area_combat[i][x] = BEAM
+                        end
                     end
                 end
             end
