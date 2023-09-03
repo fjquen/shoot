@@ -17,7 +17,7 @@ module Beam
                         i = 0
                         loop do
                         break if i == y
-                        i = i + 1
+                        i += 1
                         @area_combat[i][x] = BEAM
                         end
                     end
