@@ -3,7 +3,7 @@ module Beam
     POSITION_BEAM = 24
     WIDTH_TILE_BEAM = 15
     HEIGHT_TILE_BEAM = 55
-    def move_beam(player,void)
+    def move_beam(player,void,ennemy)
         pos_row_player = @area_combat.flatten.index(player)
         pos_col_player = @area_combat.first.size
         row_player = pos_row_player / pos_col_player
@@ -14,11 +14,9 @@ module Beam
             @area_combat[y].each_index do |x|
                 if @area_combat[@y][col_player] == void
                     if col_player==x && y==@y
-                        i = 0
-                        loop do
-                        break if i == y
-                        i += 1
-                        @area_combat[i][x] = BEAM
+                        for i in 0..y
+                            next if @area_combat[i][x] != ennemy
+                            @area_combat[i][x] = BEAM
                         end
                     end
                 end
