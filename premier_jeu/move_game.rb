@@ -5,7 +5,7 @@ module Move_game
     WIDTH_TILE = 55
     HEIGHT_TILE = 55
 
-    def move_right()
+    def move_right_player()
         pos_row_player = @area_combat.flatten.index(PLAYER)
         pos_col_player = @area_combat.first.size
         row_player = pos_row_player / pos_col_player
@@ -21,7 +21,7 @@ module Move_game
         @area_combat[row_player][col_player],@area_combat[row_player][@x] = @area_combat[row_player][@x],@area_combat[row_player][col_player]
     end
 
-    def move_left()
+    def move_left_player()
         pos_row_player = @area_combat.flatten.index(PLAYER)
         pos_col_player = @area_combat.first.size
         row_player = pos_row_player / pos_col_player

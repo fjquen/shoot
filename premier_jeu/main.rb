@@ -30,9 +30,9 @@ class Main < Gosu::Window
     def button_down(id)
         case id
         when Gosu::KB_RIGHT,Gosu::GP_RIGHT
-            move_right()
+            move_right_player()
         when Gosu::KB_LEFT,Gosu::GP_LEFT
-            move_left()
+            move_left_player()
         when Gosu::KB_SPACE,Gosu::GP_BUTTON_1
             move_beam(PLAYER,VOID,ENNEMY)
         end
