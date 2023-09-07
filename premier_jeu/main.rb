@@ -31,7 +31,6 @@ class Main < Gosu::Window
         case id
         when Gosu::KB_RIGHT,Gosu::GP_RIGHT
             move_right_player()
-            move_right_ennemy()
         when Gosu::KB_LEFT,Gosu::GP_LEFT
             move_left_player()
         when Gosu::KB_SPACE,Gosu::GP_BUTTON_1
