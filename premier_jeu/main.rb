@@ -10,7 +10,7 @@ class Main < Gosu::Window
         super 640,480
         self.caption = "premier jeu"
         @area_combat = [[" "," "," "," "," "," "," "," "," "," "," ",],
-                        [" "," "," "," "," "," "," "," "," "," "," ",],
+                        [" "," "," "," "," "," ","°"," "," "," "," ",],
                         [" "," "," "," "," "," ","°"," "," "," "," ",],
                         [" "," "," "," "," "," "," "," "," "," "," ",],
                         [" "," "," "," "," "," "," "," "," "," "," ",],
@@ -24,13 +24,14 @@ class Main < Gosu::Window
     end
     
     def update
-        
+    
     end
 
     def button_down(id)
         case id
         when Gosu::KB_RIGHT,Gosu::GP_RIGHT
             move_right_player()
+            move_right_ennemy()
         when Gosu::KB_LEFT,Gosu::GP_LEFT
             move_left_player()
         when Gosu::KB_SPACE,Gosu::GP_BUTTON_1
