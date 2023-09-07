@@ -24,7 +24,6 @@ class Main < Gosu::Window
     end
     
     def update
-    
     end
 
     def button_down(id)
@@ -53,6 +52,9 @@ class Main < Gosu::Window
                     @ennemy.draw(x*WIDTH_TILE, y*HEIGHT_TILE,1)
                 elsif @area_combat[y][x] == BEAM
                     Gosu.draw_rect(x*WIDTH_TILE+POSITION_BEAM, y*HEIGHT_TILE, WIDTH_TILE_BEAM, HEIGHT_TILE_BEAM,Gosu::Color::RED)
+                    if Gosu.milliseconds > 3000
+                        @area_combat[y][x] = VOID
+                    end
                 end
             end 
         end
