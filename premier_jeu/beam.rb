@@ -14,10 +14,7 @@ module Beam
             @area_combat[y].each_index do |x|
                 if @area_combat[@y][col_player] == void
                     if col_player==x && y==@y
-                        for i in 0..y
-                            next if @area_combat[i][x] != ennemy
-                            @area_combat[i][x] = BEAM
-                        end
+                            @area_combat[y][x] = BEAM
                     end
                 end
             end
