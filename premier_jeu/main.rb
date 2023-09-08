@@ -59,8 +59,9 @@ class Main < Gosu::Window
                     col_player = pos_row_player % pos_col_player
                     @y = row_player
                     @y -= 1
-                    return if @area_combat[@y_push][x] == ENNEMY
+                    return if @area_combat[@y_push][x] == PLAYER
                             @area_combat[@y_push][x],@area_combat[y][x] = @area_combat[y][x],@area_combat[@y_push][x]
+                    @area_combat[y][x] = VOID
                 end
             end 
         end
