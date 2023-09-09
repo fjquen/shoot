@@ -11,8 +11,8 @@ class Main < Gosu::Window
         self.caption = "premier jeu"
         @area_combat = [[" "," "," "," "," "," "," "," "," "," "," ",],
                         [" "," "," "," "," "," ","°"," "," "," "," ",],
-                        [" "," "," "," "," "," ","°"," "," "," "," ",],
                         [" "," "," "," "," "," "," "," "," "," "," ",],
+                        [" "," "," ","°"," "," ","°"," "," "," "," ",],
                         [" "," "," "," "," "," "," "," "," "," "," ",],
                         [" "," "," "," "," "," "," "," "," "," "," ",],
                         [" "," "," "," "," "," "," "," "," "," "," ",],
@@ -24,14 +24,7 @@ class Main < Gosu::Window
     end
     
     def update
-        @area_combat.each_index do |y|
-            @area_combat[y].each_index do |x|
-                if @area_combat[y][x] == ENNEMY && @area_combat[@y_beam][x] == BEAM
-                    puts y
-                    puts @y_beam
-                end
-            end
-        end
+        
     end
 
     def button_down(id)
@@ -41,7 +34,7 @@ class Main < Gosu::Window
         when Gosu::KB_LEFT,Gosu::GP_LEFT
             move_left_player()
         when Gosu::KB_SPACE,Gosu::GP_BUTTON_1
-            move_beam(PLAYER,VOID,ENNEMY)
+            move_beam()
         end
     end
    
@@ -60,8 +53,6 @@ class Main < Gosu::Window
                     @ennemy.draw(x*WIDTH_TILE, y*HEIGHT_TILE,1)
                 elsif @area_combat[y][x] == BEAM
                     Gosu.draw_rect(x*WIDTH_TILE+POSITION_BEAM, y*HEIGHT_TILE, WIDTH_TILE_BEAM, HEIGHT_TILE_BEAM,Gosu::Color::RED)
-                    return if @area_combat[y][x] == ENNEMY
-                            @area_combat[@y_beam][x],@area_combat[y][x] = @area_combat[y][x],@area_combat[@y_beam][x]
                 end
             end 
         end
