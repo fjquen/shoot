@@ -24,7 +24,7 @@ module Beam
                                     y-= 1
                                     @area_combat[y][x] = BEAM
                                     player = @area_combat.length - 1
-                                    @area_combat[player][@x] = PLAYER
+                                    @area_combat[player][col_player] = PLAYER
                             end
                     end    
                 end
