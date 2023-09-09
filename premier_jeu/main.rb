@@ -20,11 +20,11 @@ class Main < Gosu::Window
         @player = Gosu::Image.new("media/playerShip1_blue.png")
         @ennemy = Gosu::Image.new("media/enemyRed1.png")
         @beam = Gosu::Image.new("media/laserRed05.png")
-        @x=@y=@y_push=0
+        @x=@y=@y_beam=0
     end
     
     def update
-        
+
     end
 
     def button_down(id)
@@ -53,15 +53,8 @@ class Main < Gosu::Window
                     @ennemy.draw(x*WIDTH_TILE, y*HEIGHT_TILE,1)
                 elsif @area_combat[y][x] == BEAM
                     Gosu.draw_rect(x*WIDTH_TILE+POSITION_BEAM, y*HEIGHT_TILE, WIDTH_TILE_BEAM, HEIGHT_TILE_BEAM,Gosu::Color::RED)
-                    pos_row_player = @area_combat.flatten.index(BEAM)
-                    pos_col_player = @area_combat.first.size
-                    row_player = pos_row_player / pos_col_player
-                    col_player = pos_row_player % pos_col_player
-                    @y = row_player
-                    @y -= 1
-                    return if @area_combat[@y_push][x] == PLAYER
-                            @area_combat[@y_push][x],@area_combat[y][x] = @area_combat[y][x],@area_combat[@y_push][x]
-                    @area_combat[y][x] = VOID
+                    return if @area_combat[y][x] == ENNEMY
+                            @area_combat[@y_beam][x],@area_combat[y][x] = @area_combat[y][x],@area_combat[@y_beam][x]
                 end
             end 
         end
