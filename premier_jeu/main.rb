@@ -24,7 +24,14 @@ class Main < Gosu::Window
     end
     
     def update
-
+        @area_combat.each_index do |y|
+            @area_combat[y].each_index do |x|
+                if @area_combat[y][x] == ENNEMY && @area_combat[@y_beam][x] == BEAM
+                    puts y
+                    puts @y_beam
+                end
+            end
+        end
     end
 
     def button_down(id)
