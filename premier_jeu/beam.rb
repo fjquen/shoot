@@ -18,7 +18,7 @@ module Beam
             @area_combat[y].each_index do |x|
                 if @area_combat[@y][col_player] == VOID
                     if col_player==x && y==@y
-                            @area_combat[y][x] = BEAM
+                        @area_combat[y][x] = BEAM
                             for y in 0..@area_combat.length
                                 next if @area_combat[@y][col_player] == VOID
                                     y-= 1
@@ -26,10 +26,7 @@ module Beam
                                     player = @area_combat.length - 1
                                     @area_combat[player][@x] = PLAYER
                             end
-                    end
-
-
-                     
+                    end    
                 end
             end
         end
