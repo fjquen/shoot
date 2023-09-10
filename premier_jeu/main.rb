@@ -10,7 +10,7 @@ class Main < Gosu::Window
         super 640,480
         self.caption = "premier jeu"
         @area_combat = [[" "," "," "," "," "," "," "," "," "," "," ",],
-                        [" "," "," "," "," "," "," "," "," "," ","°",],
+                        [" ","°"," "," "," "," "," "," "," "," ","°",],
                         [" "," "," "," "," "," "," "," "," "," "," ",],
                         [" "," "," ","°"," "," ","°"," "," "," "," ",],
                         [" "," "," "," "," "," "," "," "," "," "," ",],
@@ -20,7 +20,7 @@ class Main < Gosu::Window
         @player = Gosu::Image.new("media/playerShip1_blue.png")
         @ennemy = Gosu::Image.new("media/enemyRed1.png")
         @beam = Gosu::Image.new("media/laserRed05.png")
-        @x=@y=@y_beam=0
+        @x=@y=0
         @font = Gosu::Font.new(20)
     end
     
@@ -62,7 +62,7 @@ class Main < Gosu::Window
     end
 
     def draw_text_score
-        @font.draw_text("Nombre d'ennemy eliminey : #{ @number_ennemy.length}", 10, 10, 0, 1.0, 1.0, Gosu::Color::YELLOW)
+        @font.draw_text("Nombre d'ennemy à eliminey : #{ @number_ennemy.length}", 10, 10, 0, 1.0, 1.0, Gosu::Color::YELLOW)
     end
 end
 Main.new.show

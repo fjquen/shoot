@@ -1,7 +1,6 @@
 module Beam
     BEAM = "|"
     PLAYER = "§"
-    ENNEMY = "°"
     VOID = " "
     POSITION_BEAM = 24
     WIDTH_TILE_BEAM = 15
