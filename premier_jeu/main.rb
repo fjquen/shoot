@@ -26,7 +26,6 @@ class Main < Gosu::Window
     
     def update
         @number_ennemy = @area_combat.flatten.select {|v| v =~ /°/ }
-       
     end
 
     def button_down(id)
