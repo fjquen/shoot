@@ -19,7 +19,6 @@ class Main < Gosu::Window
                         [" "," "," "," ","§"," "," "," "," "," "," ",]]
         @player = Gosu::Image.new("media/playerShip1_blue.png")
         @ennemy = Gosu::Image.new("media/enemyRed1.png")
-        @beam = Gosu::Image.new("media/laserRed05.png")
         @x=@y=0
         @font = Gosu::Font.new(20)
     end
