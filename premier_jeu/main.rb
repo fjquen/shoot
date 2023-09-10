@@ -10,7 +10,7 @@ class Main < Gosu::Window
         super 640,480
         self.caption = "premier jeu"
         @area_combat = [[" "," "," "," "," "," "," "," "," "," "," ",],
-                        [" "," "," "," "," "," ","°"," "," "," "," ",],
+                        [" "," "," "," "," "," "," "," "," "," ","°",],
                         [" "," "," "," "," "," "," "," "," "," "," ",],
                         [" "," "," ","°"," "," ","°"," "," "," "," ",],
                         [" "," "," "," "," "," "," "," "," "," "," ",],
@@ -21,10 +21,12 @@ class Main < Gosu::Window
         @ennemy = Gosu::Image.new("media/enemyRed1.png")
         @beam = Gosu::Image.new("media/laserRed05.png")
         @x=@y=@y_beam=0
+        @font = Gosu::Font.new(20)
     end
     
     def update
-        
+        @number_ennemy = @area_combat.flatten.select {|v| v =~ /°/ }
+       
     end
 
     def button_down(id)
@@ -40,6 +42,7 @@ class Main < Gosu::Window
    
     def draw
        draw_area()
+       draw_text_score()
     end
 
     def draw_area()
@@ -57,6 +60,10 @@ class Main < Gosu::Window
                 end
             end 
         end
+    end
+
+    def draw_text_score
+        @font.draw_text("Nombre d'ennemy eliminey : #{ @number_ennemy.length}", 10, 10, 0, 1.0, 1.0, Gosu::Color::YELLOW)
     end
 end
 Main.new.show
