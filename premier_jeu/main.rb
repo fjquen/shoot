@@ -25,7 +25,7 @@ class Main < Gosu::Window
     end
     
     def update
-        @number_ennemy = @area_combat.flatten.select {|v| v =~ /°/ }
+        @number_ennemy = @area_combat.flatten.select {|v| v =~ /°/ }.length
     end
 
     def button_down(id)
@@ -62,7 +62,7 @@ class Main < Gosu::Window
     end
 
     def draw_text_score
-        @font.draw_text("Nombre d'ennemy à eliminey : #{ @number_ennemy.length}", 10, 10, 0, 1.0, 1.0, Gosu::Color::YELLOW)
+        @font.draw_text("Nombre d'ennemy à eliminey : #{ @number_ennemy}", 10, 10, 0, 1.0, 1.0, Gosu::Color::YELLOW)
     end
 end
 Main.new.show
