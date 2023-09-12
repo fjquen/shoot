@@ -1,7 +1,6 @@
+require './constant.rb'
 module Beam
-    BEAM = "|"
-    PLAYER = "§"
-    VOID = " "
+    include Constant
     POSITION_BEAM = 24
     WIDTH_TILE_BEAM = 15
     HEIGHT_TILE_BEAM = 55

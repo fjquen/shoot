@@ -1,7 +1,6 @@
+require './constant.rb'
 module Move_game
-    PLAYER = "§"
-    ENNEMY = "°"
-    VOID = " "
+    include Constant
     WIDTH_TILE = 55
     HEIGHT_TILE = 55
 
