@@ -25,6 +25,16 @@ class Main < Gosu::Window
     
     def update
         @number_ennemy = @area_combat.flatten.select {|v| v =~ /°/ }.length
+        tab = []
+        @area_combat.each_index do |y|
+            @area_combat[y].each_index do |x|
+                if @area_combat[y][x] == "°"
+                    tab<<{ "x" => x, "y" => y }
+                end
+            end
+        end
+            index_tab =tab[rand(tab.length)]
+            puts "objet : #{index_tab["x"]} #{index_tab["y"]}"
     end
 
     def button_down(id)
