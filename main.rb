@@ -39,8 +39,7 @@ class Main < Gosu::Window
             @area_combat[y].each_index do |x|
                 if @area_combat[y][x] == " "
                     index_tab =tab[rand(tab.length)]
-                    puts "objet : #{index_tab["x"]} #{index_tab["y"]}"
-                    return if index_tab["y"] == y && x == index_tab["x"]
+                    return if @area_combat[index_tab["y"]][index_tab["x"]] == @area_combat[y][x]
                     @area_combat[y][x],@area_combat[index_tab["y"]][index_tab["x"]] = @area_combat[index_tab["y"]][index_tab["x"]],@area_combat[y][x]
                 end 
             end
