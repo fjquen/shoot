@@ -40,7 +40,7 @@ class Main < Gosu::Window
                 if @area_combat[y][x] == " "
                     index_tab =tab[rand(tab.length)]
                     return if @area_combat[index_tab["y"]][index_tab["x"]] == @area_combat[y][x]
-                    @area_combat[y][x],@area_combat[index_tab["y"]][index_tab["x"]] = @area_combat[index_tab["y"]][index_tab["x"]],@area_combat[y][x]
+                    @area_combat[index_tab["y"]][x],@area_combat[index_tab["y"]][index_tab["x"]] = @area_combat[index_tab["y"]][index_tab["x"]],@area_combat[index_tab["y"]][x]
                 end 
             end
         end
