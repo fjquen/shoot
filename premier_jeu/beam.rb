@@ -1,9 +1,6 @@
 require './constant.rb'
 module Beam
     include Constant
-    POSITION_BEAM = 24
-    WIDTH_TILE_BEAM = 15
-    HEIGHT_TILE_BEAM = 55
     
     def move_beam()
         pos_row_player = @area_combat.flatten.index(PLAYER)

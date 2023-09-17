@@ -1,8 +1,10 @@
 require 'gosu'
+require './constant.rb'
 require './move_game.rb'
 require './beam.rb'
 
 class Main < Gosu::Window
+    include Constant
     include Move_game
     include Beam
 
@@ -33,8 +35,16 @@ class Main < Gosu::Window
                 end
             end
         end
-            index_tab =tab[rand(tab.length)]
-            puts "objet : #{index_tab["x"]} #{index_tab["y"]}"
+        @area_combat.each_index do |y|
+            @area_combat[y].each_index do |x|
+                if @area_combat[y][x] == " "
+                    index_tab =tab[rand(tab.length)]
+                    puts "objet : #{index_tab["x"]} #{index_tab["y"]}"
+                    return if index_tab["y"] == y && x == index_tab["x"]
+                    @area_combat[y][x],@area_combat[index_tab["y"]][index_tab["x"]] = @area_combat[index_tab["y"]][index_tab["x"]],@area_combat[y][x]
+                end 
+            end
+        end
     end
 
     def button_down(id)

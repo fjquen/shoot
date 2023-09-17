@@ -1,8 +1,6 @@
 require './constant.rb'
 module Move_game
     include Constant
-    WIDTH_TILE = 55
-    HEIGHT_TILE = 55
 
     def move_right_player()
         pos_row_player = @area_combat.flatten.index(PLAYER)
@@ -16,7 +14,7 @@ module Move_game
         else
             @x = limit_x
         end
-        return if @area_combat[row_player][@x] ==  @area_combat[row_player][col_player]
+        return if @area_combat[row_player][@x] < VOID
         @area_combat[row_player][col_player],@area_combat[row_player][@x] = @area_combat[row_player][@x],@area_combat[row_player][col_player]
     end
 
