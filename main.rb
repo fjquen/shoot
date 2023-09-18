@@ -11,10 +11,10 @@ class Main < Gosu::Window
     def initialize
         super 640,480
         self.caption = "premier jeu"
-        @area_combat = [[" "," "," "," "," "," "," "," "," "," "," ",],
-                        [" ","°"," "," "," "," "," "," "," "," ","°",],
+        @area_combat = [[" ","°"," "," "," "," "," "," "," "," "," ",],
                         [" "," "," "," "," "," "," "," "," "," "," ",],
-                        [" "," "," ","°"," "," ","°"," "," "," "," ",],
+                        [" "," "," "," "," "," "," "," "," "," "," ",],
+                        [" "," "," "," "," "," "," "," "," "," "," ",],
                         [" "," "," "," "," "," "," "," "," "," "," ",],
                         [" "," "," "," "," "," "," "," "," "," "," ",],
                         [" "," "," "," "," "," "," "," "," "," "," ",],
@@ -26,24 +26,7 @@ class Main < Gosu::Window
     end
     
     def update
-        @number_ennemy = @area_combat.flatten.select {|v| v =~ /°/ }.length
-        tab = []
-        @area_combat.each_index do |y|
-            @area_combat[y].each_index do |x|
-                if @area_combat[y][x] == "°"
-                    tab<<{ "x" => x, "y" => y }
-                end
-            end
-        end
-        @area_combat.each_index do |y|
-            @area_combat[y].each_index do |x|
-                if @area_combat[y][x] == " "
-                    index_tab =tab[rand(tab.length)]
-                    return if @area_combat[index_tab["y"]][index_tab["x"]] == @area_combat[y][x]
-                    @area_combat[index_tab["y"]][x],@area_combat[index_tab["y"]][index_tab["x"]] = @area_combat[index_tab["y"]][index_tab["x"]],@area_combat[index_tab["y"]][x]
-                end 
-            end
-        end
+       
     end
 
     def button_down(id)
