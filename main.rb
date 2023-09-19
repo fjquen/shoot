@@ -11,8 +11,8 @@ class Main < Gosu::Window
     def initialize
         super 640,480
         self.caption = "premier jeu"
-        @area_combat = [[" ","°"," "," "," "," "," "," "," "," "," ",],
-                        [" "," "," "," "," "," "," "," "," "," "," ",],
+        @area_combat = [[" "," "," "," "," "," "," "," "," "," "," ",],
+                        [" "," ","°"," "," "," "," "," "," "," "," ",],
                         [" "," "," "," "," "," "," "," "," "," "," ",],
                         [" "," "," "," "," "," "," "," "," "," "," ",],
                         [" "," "," "," "," "," "," "," "," "," "," ",],
@@ -26,7 +26,7 @@ class Main < Gosu::Window
     end
     
     def update
-       
+       @number_ennemy = @area_combat.flatten.select { |n| n == "°" }.length
     end
 
     def button_down(id)
@@ -53,6 +53,12 @@ class Main < Gosu::Window
                 elsif @area_combat[y][x] == PLAYER
                     @player.draw(x*WIDTH_TILE, y*HEIGHT_TILE,1)
                 elsif @area_combat[y][x] == ENNEMY
+                    @second = 2000
+                    if Gosu.milliseconds > @second
+                        @second+=2000
+                        x+=1
+                        @area_combat[y][x] == ENNEMY
+                    end
                     @ennemy.draw(x*WIDTH_TILE, y*HEIGHT_TILE,1)
                 elsif @area_combat[y][x] == BEAM
                     Gosu.draw_rect(x*WIDTH_TILE+POSITION_BEAM, y*HEIGHT_TILE, WIDTH_TILE_BEAM, HEIGHT_TILE_BEAM,Gosu::Color::RED)
