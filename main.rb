@@ -53,11 +53,8 @@ class Main < Gosu::Window
                 elsif @area_combat[y][x] == PLAYER
                     @player.draw(x*WIDTH_TILE, y*HEIGHT_TILE,1)
                 elsif @area_combat[y][x] == ENNEMY
-                    @second = 2000
-                    if Gosu.milliseconds > @second
-                        @second+=2000
+                    if Gosu.milliseconds > 2000
                         x+=1
-                        @area_combat[y][x] == ENNEMY
                     end
                     @ennemy.draw(x*WIDTH_TILE, y*HEIGHT_TILE,1)
                 elsif @area_combat[y][x] == BEAM
