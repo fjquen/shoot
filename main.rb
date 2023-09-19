@@ -23,6 +23,14 @@ class Main < Gosu::Window
         @ennemy = Gosu::Image.new("media/enemyRed1.png")
         @x=@y=0
         @font = Gosu::Font.new(20)
+        @tab = []
+        @area_combat.each_index do |y|
+            @area_combat[y].each_index do |x|
+                if @area_combat[y][x] == "°"
+                    @tab<<{ "x" => x, "y" => y }
+                end
+            end
+        end
     end
     
     def update
@@ -43,6 +51,9 @@ class Main < Gosu::Window
     def draw
        draw_area()
        draw_text_score()
+       index_tab =@tab[rand(@tab.length)]
+       puts @tab
+       puts "objet : #{index_tab["x"]} #{index_tab["y"]}"
     end
 
     def draw_area()
