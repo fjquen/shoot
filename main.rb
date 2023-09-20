@@ -52,7 +52,7 @@ class Main < Gosu::Window
        draw_area()
        draw_text_score()
        index_tab =@tab[rand(@tab.length)]
-       puts @tab
+       #puts @tab
        puts "objet : #{index_tab["x"]} #{index_tab["y"]}"
     end
 
