@@ -35,6 +35,14 @@ class Main < Gosu::Window
     
     def update
        @number_ennemy = @area_combat.flatten.select { |n| n == "°" }.length
+       index_tab =@tab[rand(@tab.length)]
+       #puts @tab
+       puts "objet : #{index_tab["x"]} #{index_tab["y"]}"
+       x = 0
+       x += 1
+       @area_combat[index_tab["y"]][index_tab["y"]] = VOID
+       @area_combat[index_tab["y"]][x]= ENNEMY
+
     end
 
     def button_down(id)
@@ -51,14 +59,6 @@ class Main < Gosu::Window
     def draw
        draw_area()
        draw_text_score()
-       index_tab =@tab[rand(@tab.length)]
-       #puts @tab
-       puts "objet : #{index_tab["x"]} #{index_tab["y"]}"
-        x = 0
-       x += 1
-       @area_combat[index_tab["y"]][index_tab["y"]] = VOID
-       @area_combat[index_tab["y"]][x]= ENNEMY
-
     end
 
     def draw_area()
