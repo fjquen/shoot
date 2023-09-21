@@ -36,11 +36,19 @@ class Main < Gosu::Window
     def update
        @number_ennemy = @area_combat.flatten.select { |n| n == "°" }.length
        index_tab =@tab[rand(@tab.length)]
-       #puts @tab
-       puts "objet : #{index_tab["x"]} #{index_tab["y"]}"
-       x = index_tab["x"]
-       x += 1
-       @area_combat[index_tab["y"]][x]= ENNEMY
+       #@area_combat[6][1]=ENNEMY
+       # voir tuto pour générer de manière aléatoire les vaisseaux
+    #    if Gosu.milliseconds % 20 == 0
+    #     @area_combat.each_index do |y|
+    #         @area_combat[y].each_index do |x|
+    #             if @area_combat[y][x] == ENNEMY
+    #                 x = index_tab["x"]
+    #                 x += 1
+    #                 @area_combat[index_tab["y"]][x]= ENNEMY
+    #             end
+    #         end 
+    #     end
+    #    end
     end
 
     def button_down(id)
