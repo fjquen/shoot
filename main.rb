@@ -38,11 +38,9 @@ class Main < Gosu::Window
        index_tab =@tab[rand(@tab.length)]
        #puts @tab
        puts "objet : #{index_tab["x"]} #{index_tab["y"]}"
-       x = 0
+       x = index_tab["x"]
        x += 1
-       @area_combat[index_tab["y"]][index_tab["y"]] = VOID
        @area_combat[index_tab["y"]][x]= ENNEMY
-
     end
 
     def button_down(id)
