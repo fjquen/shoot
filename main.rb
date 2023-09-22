@@ -39,7 +39,9 @@ class Main < Gosu::Window
        if @number_ennemy == 0
         index_tab =@tab[rand(0..numRandex)]
         puts index_tab["y"]
+        puts index_tab["x"]
         if @number_ennemy < 10 && index_tab["y"] <= 6
+            puts index_tab["y"]
             @area_combat[index_tab["y"]][index_tab["x"]] = ENNEMY
         end
        end

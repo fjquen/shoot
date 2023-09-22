@@ -21,8 +21,20 @@ module Beam
                                     player = @area_combat.length - 1
                                     @area_combat[player][col_player] = PLAYER
                             end
-                    end    
+                    end
+                elsif @area_combat[@y][col_player] == ENNEMY
+                    if col_player==x && y==@y
+                        @area_combat[y][x] = BEAM
+                            for y in 0..@area_combat.length
+                                next if @area_combat[@y][col_player] == ENNEMY
+                                    y-= 1
+                                    @area_combat[y][x] = BEAM
+                                    player = @area_combat.length - 1
+                                    @area_combat[player][col_player] = PLAYER
+                            end
+                    end
                 end
+
             end
         end
     end
