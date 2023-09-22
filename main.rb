@@ -26,7 +26,7 @@ class Main < Gosu::Window
         @tab = []
         @area_combat.each_index do |y|
             @area_combat[y].each_index do |x|
-                if @area_combat[y][x] == "°"
+                if @area_combat[y][x] == " "
                     @tab<<{ "x" => x, "y" => y }
                 end
             end
@@ -35,9 +35,13 @@ class Main < Gosu::Window
     
     def update
        @number_ennemy = @area_combat.flatten.select { |n| n == "°" }.length
-       index_tab =@tab[rand(@tab.length)]
+       numRandex = @area_combat.flatten.length - 1
+       index_tab =@tab[rand(numRandex)]
+       puts "#{index_tab["x"]} #{index_tab["y"]}"
+       @area_combat[index_tab["y"]][index_tab["x"]] = ENNEMY
+
        #@area_combat[6][1]=ENNEMY
-       # voir tuto pour générer de manière aléatoire les vaisseaux
+       #voir tuto pour générer de manière aléatoire les vaisseaux
     #    if Gosu.milliseconds % 20 == 0
     #     @area_combat.each_index do |y|
     #         @area_combat[y].each_index do |x|
