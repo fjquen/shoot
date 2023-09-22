@@ -37,9 +37,11 @@ class Main < Gosu::Window
        @number_ennemy = @area_combat.flatten.select { |n| n == "°" }.length
        numRandex = @area_combat.flatten.length - 1
        index_tab =@tab[rand(numRandex)]
-       puts "#{index_tab["x"]} #{index_tab["y"]}"
-       @area_combat[index_tab["y"]][index_tab["x"]] = ENNEMY
+       #puts "#{index_tab["x"]} #{index_tab["y"]}"
 
+       if @number_ennemy < 10
+        @area_combat[index_tab["y"]][index_tab["x"]] = ENNEMY
+       end
        #@area_combat[6][1]=ENNEMY
        #voir tuto pour générer de manière aléatoire les vaisseaux
     #    if Gosu.milliseconds % 20 == 0
