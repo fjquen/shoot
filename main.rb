@@ -35,8 +35,13 @@ class Main < Gosu::Window
     
     def update
        @number_ennemy = @area_combat.flatten.select { |n| n == "°" }.length
-       puts @tab[0]["x"]
-       puts @area_combat[@tab[0]["y"]][@tab[0]["x"]]
+       @y += 1
+       puts @area_combat[@y][@tab[0]["x"]]
+    #    return if @area_combat[@tab[0]["y"]][@tab[0]["x"]] < VOID && @y<6
+    #    @y += 1 
+    #    puts @area_combat[@y][@tab[0]["x"]]
+    #    puts @area_combat[@tab[0]["y"]][@tab[0]["x"]]
+    #    @area_combat[@tab[0]["y"]][@tab[0]["x"]],@area_combat[@y][@tab[0]["x"]] = @area_combat[@y][@tab[0]["x"]],@area_combat[@tab[0]["y"]][@tab[0]["x"]]
     end
 
     def button_down(id)
