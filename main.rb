@@ -26,7 +26,7 @@ class Main < Gosu::Window
         @tab = []
         @area_combat.each_index do |y|
             @area_combat[y].each_index do |x|
-                if @area_combat[y][x] == " "
+                if @area_combat[y][x] == ENNEMY
                     @tab<<{ "x" => x, "y" => y }
                 end
             end
@@ -35,7 +35,8 @@ class Main < Gosu::Window
     
     def update
        @number_ennemy = @area_combat.flatten.select { |n| n == "°" }.length
-    
+       puts @tab[0]["x"]
+       puts @area_combat[@tab[0]["y"]][@tab[0]["x"]]
     end
 
     def button_down(id)
