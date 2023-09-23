@@ -17,7 +17,7 @@ class Main < Gosu::Window
                         [" "," "," "," "," "," "," "," "," "," "," ",],
                         [" "," "," "," "," "," "," "," "," "," "," ",],
                         [" "," "," "," "," "," "," "," "," "," "," ",],
-                        [" "," "," "," "," "," "," "," "," "," "," ",],
+                        [" "," "," "," ","°"," "," "," "," "," "," ",],
                         [" "," "," "," ","§"," "," "," "," "," "," ",]]
         @player = Gosu::Image.new("media/playerShip1_blue.png")
         @ennemy = Gosu::Image.new("media/enemyRed1.png")
@@ -35,34 +35,7 @@ class Main < Gosu::Window
     
     def update
        @number_ennemy = @area_combat.flatten.select { |n| n == "°" }.length
-       numRandex = @area_combat.flatten.length - 1
-       if @number_ennemy == 0
-        index_tab =@tab[rand(0..numRandex)]
-        puts rand(0..numRandex)
-        # puts index_tab["y"]
-        # puts index_tab["x"]
-        # puts @tab
-        if @number_ennemy < 10 && index_tab["y"] <= 6
-            puts index_tab["y"]
-            @area_combat[index_tab["y"]][index_tab["x"]] = ENNEMY
-        end
-       end
-       #puts "#{index_tab["x"]} #{index_tab["y"]}"
-       
-       
-       #@area_combat[6][1]=ENNEMY
-       #voir tuto pour générer de manière aléatoire les vaisseaux
-    #    if Gosu.milliseconds % 20 == 0
-    #     @area_combat.each_index do |y|
-    #         @area_combat[y].each_index do |x|
-    #             if @area_combat[y][x] == ENNEMY
-    #                 x = index_tab["x"]
-    #                 x += 1
-    #                 @area_combat[index_tab["y"]][x]= ENNEMY
-    #             end
-    #         end 
-    #     end
-    #    end
+    
     end
 
     def button_down(id)
