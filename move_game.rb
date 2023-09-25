@@ -33,4 +33,16 @@ module Move_game
         return if @area_combat[row_player][@x] < VOID
         @area_combat[row_player][col_player],@area_combat[row_player][@x] = @area_combat[row_player][@x],@area_combat[row_player][col_player]
     end
+
+    def down_move_push()
+        pos_row_player = @area_combat.flatten.index(ENNEMY)
+        pos_col_player = @area_combat.first.size
+        row_player = pos_row_player / pos_col_player
+        col_player = pos_row_player % pos_col_player
+        @y = row_player
+        @y += 1
+       
+        return if @area_combat[@y][col_player] < VOID
+            @area_combat[row_player][col_player],@area_combat[@y][col_player] = @area_combat[@y][col_player],@area_combat[row_player][col_player]
+    end
 end
