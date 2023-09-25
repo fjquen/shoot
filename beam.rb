@@ -34,7 +34,6 @@ module Beam
                             end
                     end
                 end
-
             end
         end
     end
