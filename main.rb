@@ -35,7 +35,10 @@ class Main < Gosu::Window
     
     def update
        @number_ennemy = @area_combat.flatten.select { |n| n == "°" }.length
-       down_move_push()
+       if Gosu.milliseconds > 1000
+        down_move_push()
+       end
+       
     #    @y += 1
     #    puts @area_combat[@y][@tab[0]["x"]]
     #    return if @area_combat[@tab[0]["y"]][@tab[0]["x"]] < VOID && @y<6
