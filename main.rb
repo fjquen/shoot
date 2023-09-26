@@ -35,9 +35,7 @@ class Main < Gosu::Window
     
     def update
        @number_ennemy = @area_combat.flatten.select { |n| n == "°" }.length
-       if Gosu.milliseconds < 500
-        down_move_push()
-       end
+       down_move_push()
        
     #    @y += 1
     #    puts @area_combat[@y][@tab[0]["x"]]
