@@ -12,8 +12,8 @@ class Main < Gosu::Window
         super 640,480
         self.caption = "premier jeu"
         @area_combat = [[" "," "," "," "," "," "," "," "," "," "," ",],
-                        [" "," ","°"," "," "," "," ","°"," ","°"," ",],
-                        [" ","°"," ","°"," ","°"," "," ","°"," "," ",],
+                        [" "," "," "," "," "," "," "," "," "," "," ",],
+                        [" "," "," "," "," ","°"," "," "," "," "," ",],
                         [" "," "," "," "," "," "," "," "," "," "," ",],
                         [" "," "," "," "," "," "," "," "," "," "," ",],
                         [" "," "," "," "," "," "," "," "," "," "," ",],
@@ -23,19 +23,11 @@ class Main < Gosu::Window
         @ennemy = Gosu::Image.new("media/enemyRed1.png")
         @x=@y=0
         @font = Gosu::Font.new(20)
-        @tab = []
-        @area_combat.each_index do |y|
-            @area_combat[y].each_index do |x|
-                if @area_combat[y][x] == ENNEMY
-                    @tab<<{ "x" => x, "y" => y }
-                end
-            end
-        end
     end
     
     def update
        @number_ennemy = @area_combat.flatten.select { |n| n == "°" }.length
-       down_move_push()
+       
        
     #    @y += 1
     #    puts @area_combat[@y][@tab[0]["x"]]
