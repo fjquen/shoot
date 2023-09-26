@@ -41,7 +41,10 @@ module Move_game
         col_player = pos_row_player % pos_col_player
         @y = row_player
         @y += 1
-       
+        puts @y
+        puts "area #{@area_combat.first.size}"
+        puts "row #{row_player}"
+        puts "col #{col_player}"
         return if @area_combat[@y][col_player] < VOID
             @area_combat[row_player][col_player],@area_combat[@y][col_player] = @area_combat[@y][col_player],@area_combat[row_player][col_player]
     end
