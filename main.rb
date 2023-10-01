@@ -13,7 +13,7 @@ class Main < Gosu::Window
         self.caption = "premier jeu"
         @area_combat = [[" "," "," "," "," "," "," "," "," "," "," ",],
                         [" "," "," "," "," "," "," "," "," "," "," ",],
-                        [" "," "," "," "," ","°"," "," "," "," "," ",],
+                        [" "," "," "," "," "," "," ","°"," "," "," ",],
                         [" "," "," "," "," "," "," "," "," "," "," ",],
                         [" "," "," "," "," "," "," "," "," "," "," ",],
                         [" "," "," "," "," "," "," "," "," "," "," ",],
@@ -27,8 +27,6 @@ class Main < Gosu::Window
     
     def update
        @number_ennemy = @area_combat.flatten.select { |n| n == "°" }.length
-       
-       
     #    @y += 1
     #    puts @area_combat[@y][@tab[0]["x"]]
     #    return if @area_combat[@tab[0]["y"]][@tab[0]["x"]] < VOID && @y<6
