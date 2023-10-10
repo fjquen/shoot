@@ -23,10 +23,14 @@ class Main < Gosu::Window
         @ennemy = Gosu::Image.new("media/enemyRed1.png")
         @x=@y=0
         @font = Gosu::Font.new(20)
+        @tab_move_ennemy = ["r","l","s"]
     end
     
     def update
        @number_ennemy = @area_combat.flatten.select { |n| n == "°" }.length
+       y_ennemy = @area_combat.index(@area_combat.detect{|aa| aa.include?('°')})
+       row = @area_combat.detect{|aa| aa.include?('°')}
+       x_ennemy = row.index('°')
     #    @y += 1
     #    puts @area_combat[@y][@tab[0]["x"]]
     #    return if @area_combat[@tab[0]["y"]][@tab[0]["x"]] < VOID && @y<6
@@ -34,6 +38,25 @@ class Main < Gosu::Window
     #    puts @area_combat[@y][@tab[0]["x"]]
     #    puts @area_combat[@tab[0]["y"]][@tab[0]["x"]]
     #    @area_combat[@tab[0]["y"]][@tab[0]["x"]],@area_combat[@y][@tab[0]["x"]] = @area_combat[@y][@tab[0]["x"]],@area_combat[@tab[0]["y"]][@tab[0]["x"]]
+        case @tab_move_ennemy.sample
+            when "r"
+                if x_ennemy<10
+                    @area_combat[y_ennemy][x_ennemy] = " "
+                    x_ennemy+=1
+                    @area_combat[y_ennemy][x_ennemy] = "°"
+                end
+                
+            when "l"
+                if x_ennemy<10 || x_ennemy>0
+                    @area_combat[y_ennemy][x_ennemy] = " "
+                    x_ennemy-=1
+                    @area_combat[y_ennemy][x_ennemy] = "°"
+                end
+            when "s"
+                @area_combat[y_ennemy][x_ennemy] = " "
+                x_ennemy=x_ennemy
+                @area_combat[y_ennemy][x_ennemy] = "°"
+        end
     end
 
     def button_down(id)
