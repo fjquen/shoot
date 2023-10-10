@@ -28,34 +28,30 @@ class Main < Gosu::Window
     
     def update
        @number_ennemy = @area_combat.flatten.select { |n| n == "°" }.length
-       y_ennemy = @area_combat.index(@area_combat.detect{|aa| aa.include?('°')})
-       row = @area_combat.detect{|aa| aa.include?('°')}
-       x_ennemy = row.index('°')
-    #    @y += 1
-    #    puts @area_combat[@y][@tab[0]["x"]]
-    #    return if @area_combat[@tab[0]["y"]][@tab[0]["x"]] < VOID && @y<6
-    #    @y += 1 
-    #    puts @area_combat[@y][@tab[0]["x"]]
-    #    puts @area_combat[@tab[0]["y"]][@tab[0]["x"]]
-    #    @area_combat[@tab[0]["y"]][@tab[0]["x"]],@area_combat[@y][@tab[0]["x"]] = @area_combat[@y][@tab[0]["x"]],@area_combat[@tab[0]["y"]][@tab[0]["x"]]
-        case @tab_move_ennemy.sample
-            when "r"
-                if x_ennemy<10
+       if @number_ennemy>0
+            y_ennemy = @area_combat.index(@area_combat.detect{|aa| aa.include?('°')})
+            row = @area_combat.detect{|aa| aa.include?('°')}
+            x_ennemy = row.index('°')
+       end
+        if @number_ennemy>0
+            case @tab_move_ennemy.sample
+                when "r"
+                        if x_ennemy<10
+                            @area_combat[y_ennemy][x_ennemy] = " "
+                            x_ennemy+=1
+                            @area_combat[y_ennemy][x_ennemy] = "°"
+                        end
+                when "l"
+                    if x_ennemy<10 || x_ennemy>0
+                        @area_combat[y_ennemy][x_ennemy] = " "
+                        x_ennemy-=1
+                        @area_combat[y_ennemy][x_ennemy] = "°"
+                    end
+                when "s"
                     @area_combat[y_ennemy][x_ennemy] = " "
-                    x_ennemy+=1
+                    x_ennemy=x_ennemy
                     @area_combat[y_ennemy][x_ennemy] = "°"
-                end
-                
-            when "l"
-                if x_ennemy<10 || x_ennemy>0
-                    @area_combat[y_ennemy][x_ennemy] = " "
-                    x_ennemy-=1
-                    @area_combat[y_ennemy][x_ennemy] = "°"
-                end
-            when "s"
-                @area_combat[y_ennemy][x_ennemy] = " "
-                x_ennemy=x_ennemy
-                @area_combat[y_ennemy][x_ennemy] = "°"
+            end
         end
     end
 
