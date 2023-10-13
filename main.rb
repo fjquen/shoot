@@ -23,7 +23,7 @@ class Main < Gosu::Window
         @ennemy = Gosu::Image.new("media/enemyRed1.png")
         @x=@y=0
         @font = Gosu::Font.new(20)
-        @tab_move_ennemy = ["r","l","s"]
+        @tab_move_ennemy = ["r","l","s","b"]
     end
     
     def update
@@ -51,6 +51,11 @@ class Main < Gosu::Window
                     @area_combat[y_ennemy][x_ennemy] = " "
                     x_ennemy=x_ennemy
                     @area_combat[y_ennemy][x_ennemy] = "°"
+                when "b"
+                    sum_y_ennemy = y_ennemy + 1
+                    num_test = @area_combat.length - sum_y_ennemy
+                    y_ennemy+=num_test
+                    @area_combat[y_ennemy][x_ennemy] = "|"
             end
         end
     end
