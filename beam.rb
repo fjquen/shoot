@@ -3,6 +3,8 @@ module Beam
     include Constant
     
     def move_beam()
+        player = @area_combat.flatten.select { |n| n == "§" }.length
+        if player>0
         pos_row_player = @area_combat.flatten.index(PLAYER)
         pos_col_player = @area_combat.first.size
         row_player = pos_row_player / pos_col_player
@@ -37,4 +39,5 @@ module Beam
             end
         end
     end
+  end
 end
