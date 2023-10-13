@@ -36,11 +36,11 @@ class Main < Gosu::Window
         if @number_ennemy>0
             case @tab_move_ennemy.sample
                 when "r"
-                        if x_ennemy<10
-                            @area_combat[y_ennemy][x_ennemy] = " "
-                            x_ennemy+=1
-                            @area_combat[y_ennemy][x_ennemy] = "°"
-                        end
+                    if x_ennemy<10
+                        @area_combat[y_ennemy][x_ennemy] = " "
+                        x_ennemy+=1
+                        @area_combat[y_ennemy][x_ennemy] = "°"
+                    end
                 when "l"
                     if x_ennemy<10 || x_ennemy>0
                         @area_combat[y_ennemy][x_ennemy] = " "
