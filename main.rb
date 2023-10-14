@@ -24,6 +24,7 @@ class Main < Gosu::Window
         @x=@y=0
         @font = Gosu::Font.new(20)
         @tab_move_ennemy = ["r","l","s","b"]
+        self.update_interval = 100
     end
     
     def update
