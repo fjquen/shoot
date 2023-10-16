@@ -53,12 +53,10 @@ class Main < Gosu::Window
                     x_ennemy=x_ennemy
                     @area_combat[y_ennemy][x_ennemy] = ENNEMY
                 when "b"
-                    num_test = @area_combat.length - y_ennemy
-                while @number_ennemy>0
-                    break if y_ennemy > num_test
-                    y_ennemy += 1
-                    @area_combat[y_ennemy][x_ennemy] = BEAM
-                end
+                    @area_combat.each_index do |y|
+                        @area_combat[y].each_index do |x|
+                        end
+                    end
             end
         end
     end
