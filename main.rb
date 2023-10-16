@@ -71,6 +71,8 @@ class Main < Gosu::Window
             move_left_player()
         when Gosu::KB_SPACE,Gosu::GP_BUTTON_1
             move_beam()
+        when Gosu::KB_ESCAPE
+            close
         end
     end
    
