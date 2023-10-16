@@ -55,8 +55,10 @@ class Main < Gosu::Window
                 when "b"
                     sum_y_ennemy = y_ennemy + 1
                     num_test = @area_combat.length - sum_y_ennemy
-                    y_ennemy+=num_test
-                    @area_combat[y_ennemy][x_ennemy] = "|"
+                    for n in 1..num_test
+                        y_ennemy += 1
+                        @area_combat[y_ennemy][x_ennemy] = "|"
+                    end
             end
         end
     end
