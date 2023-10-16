@@ -53,12 +53,12 @@ class Main < Gosu::Window
                     x_ennemy=x_ennemy
                     @area_combat[y_ennemy][x_ennemy] = "°"
                 when "b"
-                    sum_y_ennemy = y_ennemy + 1
-                    num_test = @area_combat.length - sum_y_ennemy
-                    for n in 1..num_test
-                        y_ennemy += 1
-                        @area_combat[y_ennemy][x_ennemy] = "|"
-                    end
+                    num_test = @area_combat.length - y_ennemy
+                while @number_ennemy>0
+                    break if y_ennemy > num_test
+                    y_ennemy += 1
+                    @area_combat[y_ennemy][x_ennemy] = "|"
+                end
             end
         end
     end
