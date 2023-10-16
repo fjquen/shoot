@@ -38,26 +38,26 @@ class Main < Gosu::Window
             case @tab_move_ennemy.sample
                 when "r"
                     if x_ennemy<10
-                        @area_combat[y_ennemy][x_ennemy] = " "
+                        @area_combat[y_ennemy][x_ennemy] = VOID
                         x_ennemy+=1
-                        @area_combat[y_ennemy][x_ennemy] = "°"
+                        @area_combat[y_ennemy][x_ennemy] = ENNEMY
                     end
                 when "l"
                     if x_ennemy<10 || x_ennemy>0
-                        @area_combat[y_ennemy][x_ennemy] = " "
+                        @area_combat[y_ennemy][x_ennemy] = VOID
                         x_ennemy-=1
-                        @area_combat[y_ennemy][x_ennemy] = "°"
+                        @area_combat[y_ennemy][x_ennemy] = ENNEMY
                     end
                 when "s"
-                    @area_combat[y_ennemy][x_ennemy] = " "
+                    @area_combat[y_ennemy][x_ennemy] = VOID
                     x_ennemy=x_ennemy
-                    @area_combat[y_ennemy][x_ennemy] = "°"
+                    @area_combat[y_ennemy][x_ennemy] = ENNEMY
                 when "b"
                     num_test = @area_combat.length - y_ennemy
                 while @number_ennemy>0
                     break if y_ennemy > num_test
                     y_ennemy += 1
-                    @area_combat[y_ennemy][x_ennemy] = "|"
+                    @area_combat[y_ennemy][x_ennemy] = BEAM
                 end
             end
         end
