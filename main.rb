@@ -53,16 +53,12 @@ class Main < Gosu::Window
                     x_ennemy=x_ennemy
                     @area_combat[y_ennemy][x_ennemy] = ENNEMY
                 when "b"
-                    @area_combat.each_index do |y|
-                        @area_combat[y].each_index do |x|
-                            if @area_combat[y][x] == ENNEMY
-                                # puts y
-                                # puts x 
-                            end
-                        end
+                    sum_y_ennemy = y_ennemy + 1
+                    num_test = @area_test.length - sum_y_ennemy
+                    for n in 1..num_test
+                        y_ennemy += 1
+                        @area_combat[y_ennemy][x_ennemy] = "|"
                     end
-
-                    puts @area_combat[4][8]
             end
         end
     end
