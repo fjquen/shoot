@@ -55,8 +55,14 @@ class Main < Gosu::Window
                 when "b"
                     @area_combat.each_index do |y|
                         @area_combat[y].each_index do |x|
+                            if @area_combat[y][x] == ENNEMY
+                                # puts y
+                                # puts x 
+                            end
                         end
                     end
+
+                    puts @area_combat[4][8]
             end
         end
     end
