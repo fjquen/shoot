@@ -49,9 +49,9 @@ class Main < Gosu::Window
                         @area_combat[y_ennemy][x_ennemy] = ENNEMY
                     end
                 when "s"
-                    @area_combat[y_ennemy][x_ennemy] = VOID
-                    x_ennemy=x_ennemy
-                    @area_combat[y_ennemy][x_ennemy] = ENNEMY
+                        @area_combat[y_ennemy][x_ennemy] = VOID
+                        x_ennemy=x_ennemy
+                        @area_combat[y_ennemy][x_ennemy] = ENNEMY
                 when "b"
                     sum_y_ennemy = y_ennemy + 1
                     num_test = @area_combat.length - sum_y_ennemy
