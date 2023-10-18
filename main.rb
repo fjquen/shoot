@@ -57,7 +57,7 @@ class Main < Gosu::Window
                     num_test = @area_combat.length - sum_y_ennemy
                     for n in 1..num_test
                         y_ennemy += 1
-                        @area_combat[y_ennemy][x_ennemy] = "|"
+                        @area_combat[y_ennemy][x_ennemy] = BEAM
                     end
             end
         end
