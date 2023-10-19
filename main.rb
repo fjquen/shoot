@@ -10,7 +10,7 @@ class Main < Gosu::Window
 
     def initialize
         super 640,480
-        self.caption = "premier jeu"
+        self.caption = "Shoot"
         @area_combat = [[" "," "," "," "," "," "," "," "," "," "," ",],
                         [" "," "," "," "," "," "," "," "," "," "," ",],
                         [" "," ","°"," "," "," "," ","°"," "," "," ",],
@@ -28,7 +28,9 @@ class Main < Gosu::Window
     end
     
     def update
-       @number_ennemy = @area_combat.flatten.select { |n| n == "°" }.length
+       @number_ennemy = @area_combat.flatten.select { |n| n == ENNEMY }.length
+       @number_player = @area_combat.flatten.select { |n| n == PLAYER }.length
+       puts @number_player
        move_ennemy()
     end
 
