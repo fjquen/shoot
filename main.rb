@@ -25,6 +25,7 @@ class Main < Gosu::Window
         @font = Gosu::Font.new(20)
         @tab_move_ennemy = ["r","l","s","b"]
         self.update_interval = 100
+        @background_image = Gosu::Image.new("media/space.png", :tileable => true)
     end
     
     def update
@@ -50,6 +51,7 @@ class Main < Gosu::Window
     def draw
        draw_area()
        draw_text_score()
+       @background_image.draw(0, 0, 0)
     end
 
     def draw_area()
@@ -62,7 +64,7 @@ class Main < Gosu::Window
                 elsif @area_combat[y][x] == ENNEMY
                     @ennemy.draw(x*WIDTH_TILE, y*HEIGHT_TILE,1)
                 elsif @area_combat[y][x] == BEAM
-                    Gosu.draw_rect(x*WIDTH_TILE+POSITION_BEAM, y*HEIGHT_TILE, WIDTH_TILE_BEAM, HEIGHT_TILE_BEAM,Gosu::Color::RED)
+                    Gosu.draw_rect(x*WIDTH_TILE+POSITION_BEAM, y*HEIGHT_TILE, WIDTH_TILE_BEAM, HEIGHT_TILE_BEAM,Gosu::Color::RED,1)
                     @area_combat[y][x] = VOID
                 end
             end 
@@ -70,7 +72,7 @@ class Main < Gosu::Window
     end
 
     def draw_text_score
-        @font.draw_text("Nombre d'ennemy à eliminey : #{ @number_ennemy}", 10, 10, 0, 1.0, 1.0, Gosu::Color::YELLOW)
+        @font.draw_text("Nombre d'ennemy à eliminey : #{ @number_ennemy}", 10, 10, 1, 1.0, 1.0, Gosu::Color::YELLOW)
     end
 end
 Main.new.show
