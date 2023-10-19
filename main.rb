@@ -30,11 +30,7 @@ class Main < Gosu::Window
     def update
        @number_ennemy = @area_combat.flatten.select { |n| n == ENNEMY }.length
        @number_player = @area_combat.flatten.select { |n| n == PLAYER }.length
-       if @number_player == 0
-        arr = @area_combat.last()
-        num_random = @area_combat.last().length
-        arr[rand(num_random)] = PLAYER
-       end
+       move_again_player()
        move_ennemy()
     end
 
