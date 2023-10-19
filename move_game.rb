@@ -45,7 +45,7 @@ module Move_game
             move_ennemy = []
             @area_combat.each_index do |y|
                 @area_combat[y].each_index do |x|
-                    if @area_combat[y][x] == BEAM
+                    if @area_combat[y][x] == ENNEMY
                         move_ennemy<<{"y"=>y,"x"=>x}
                     end
                 end
