@@ -29,56 +29,7 @@ class Main < Gosu::Window
     
     def update
        @number_ennemy = @area_combat.flatten.select { |n| n == "°" }.length
-       if @number_ennemy>0
-        move_ennemy = []
-        @area_combat.each_index do |y|
-            @area_combat[y].each_index do |x|
-                if @area_combat[y][x] == "°"
-                    move_ennemy<<{"y"=>y,"x"=>x}
-                end
-            end
-        end
-        random_legion = move_ennemy.sample
-        case @tab_move_ennemy.sample
-            when "r"
-                if random_legion["x"]<@area_combat.length
-                    @area_combat[random_legion["y"]][random_legion["x"]] = " "
-                    random_legion["x"]+=1
-                    if @area_combat[random_legion["y"]][random_legion["x"]] == "°"
-                        random_legion["x"]-=1
-                        @area_combat[random_legion["y"]][random_legion["x"]] = "°"
-                    else
-                        @area_combat[random_legion["y"]][random_legion["x"]] = "°"
-                    end
-                end
-            when "l"
-                if random_legion["x"]<@area_combat.length || random_legion["x"]>0
-                    @area_combat[random_legion["y"]][random_legion["x"]] = " "
-                    random_legion["x"]-=1
-                    if @area_combat[random_legion["y"]][random_legion["x"]] == "°"
-                        random_legion["x"]+=1
-                        @area_combat[random_legion["y"]][random_legion["x"]] = "°"
-                    else
-                        @area_combat[random_legion["y"]][random_legion["x"]] = "°"
-                    end
-                end 
-            when "s"
-                @area_combat[random_legion["y"]][random_legion["x"]] = " "
-                random_legion["x"]=random_legion["x"]
-                @area_combat[random_legion["y"]][random_legion["x"]] = "°"
-            when "b"
-                sum_y_ennemy = random_legion["y"] + 1
-                num_test = @area_combat.length - sum_y_ennemy
-                for n in 1..num_test
-                    random_legion["y"] += 1
-                    if @area_combat[random_legion["y"]][random_legion["x"]] == "°"
-                        @area_combat[random_legion["y"]][random_legion["x"]] = "°"
-                    else
-                        @area_combat[random_legion["y"]][random_legion["x"]] = "|"
-                    end
-                end
-            end
-        end
+       move_ennemy()
     end
 
     def button_down(id)
