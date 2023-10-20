@@ -3,36 +3,36 @@ module Beam
     include Constant
     
     def move_beam()
-        player = @area_combat.flatten.select { |n| n == "§" }.length
+        player = @arr.flatten.select { |n| n == "§" }.length
         if player>0
-        pos_row_player = @area_combat.flatten.index(PLAYER)
-        pos_col_player = @area_combat.first.size
+        pos_row_player = @arr.flatten.index(PLAYER)
+        pos_col_player = @arr.first.size
         row_player = pos_row_player / pos_col_player
         col_player = pos_row_player % pos_col_player
         @y = row_player
         @y -= 1
-            @area_combat.each_index do |y|
-                @area_combat[y].each_index do |x|
-                    if @area_combat[@y][col_player] == VOID
+            @arr.each_index do |y|
+                @arr[y].each_index do |x|
+                    if @arr[@y][col_player] == VOID
                         if col_player==x && y==@y
-                            @area_combat[y][x] = BEAM
-                                for y in 0..@area_combat.length
-                                    next if @area_combat[@y][col_player] == VOID
+                            @arr[y][x] = BEAM
+                                for y in 0..@arr.length
+                                    next if @arr[@y][col_player] == VOID
                                         y-= 1
-                                        @area_combat[y][x] = BEAM
-                                        player = @area_combat.length - 1
-                                        @area_combat[player][col_player] = PLAYER
+                                        @arr[y][x] = BEAM
+                                        player = @arr.length - 1
+                                        @arr[player][col_player] = PLAYER
                                 end
                         end
-                    elsif @area_combat[@y][col_player] == ENNEMY
+                    elsif @arr[@y][col_player] == ENNEMY
                         if col_player==x && y==@y
-                            @area_combat[y][x] = BEAM
-                                for y in 0..@area_combat.length
-                                    next if @area_combat[@y][col_player] == ENNEMY
+                            @arr[y][x] = BEAM
+                                for y in 0..@arr.length
+                                    next if @arr[@y][col_player] == ENNEMY
                                         y-= 1
-                                        @area_combat[y][x] = BEAM
-                                        player = @area_combat.length - 1
-                                        @area_combat[player][col_player] = PLAYER
+                                        @arr[y][x] = BEAM
+                                        player = @arr.length - 1
+                                        @arr[player][col_player] = PLAYER
                                 end
                         end
                     end
