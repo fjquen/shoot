@@ -26,6 +26,7 @@ class Main < Gosu::Window
         @tab_move_ennemy = ["r","l","s","b"]
         self.update_interval = 100
         @background_image = Gosu::Image.new("media/space.png", :tileable => true)
+        @count_life = 3
     end
     
     def update
@@ -33,6 +34,7 @@ class Main < Gosu::Window
        @number_player = @area_combat.flatten.select { |n| n == PLAYER }.length
        move_again_player()
        move_ennemy()
+       end_level()
     end
 
     def button_down(id)
@@ -50,7 +52,7 @@ class Main < Gosu::Window
    
     def draw
        draw_area()
-       draw_text_score()
+       draw_text
        @background_image.draw(0, 0, 0)
     end
 
@@ -71,8 +73,15 @@ class Main < Gosu::Window
         end
     end
 
-    def draw_text_score
+    def draw_text
         @font.draw_text("Nombre d'ennemy à eliminey : #{ @number_ennemy}", 10, 10, 1, 1.0, 1.0, Gosu::Color::YELLOW)
+        @font.draw_text("Nombre de vie héro : #{ @count_life}", 450, 10, 1, 1.0, 1.0, Gosu::Color::YELLOW)
+    end
+
+    def end_level
+         if @count_life == 0
+            close
+         end
     end
 end
 Main.new.show
