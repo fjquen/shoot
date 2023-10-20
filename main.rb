@@ -11,14 +11,13 @@ class Main < Gosu::Window
     def initialize
         super 640,480
         self.caption = "Shoot"
-        @area_combat = [[" "," "," "," "," "," "," "," "," "," "," ",],
-                        [" "," "," "," "," "," "," "," "," "," "," ",],
-                        [" "," ","°"," "," "," "," ","°"," "," "," ",],
-                        [" "," "," "," "," "," "," "," "," "," "," ",],
-                        [" "," "," "," "," "," "," "," ","°"," "," ",],
-                        [" "," "," "," "," "," "," "," "," "," "," ",],
-                        [" "," ","°"," "," "," "," "," "," "," "," ",],
-                        [" "," "," "," ","§"," "," "," "," "," "," ",]]
+        
+        
+        @current_level = 0
+        @arr=[]
+        File.foreach("maps/map_#@current_level.txt") { |line| 
+            @arr<<line.split("")
+        }
         @player = Gosu::Image.new("media/playerShip1_blue.png")
         @ennemy = Gosu::Image.new("media/enemyRed1.png")
         @x=@y=0
@@ -30,8 +29,8 @@ class Main < Gosu::Window
     end
     
     def update
-       @number_ennemy = @area_combat.flatten.select { |n| n == ENNEMY }.length
-       @number_player = @area_combat.flatten.select { |n| n == PLAYER }.length
+       @number_ennemy = @arr.flatten.select { |n| n == ENNEMY }.length
+       @number_player = @arr.flatten.select { |n| n == PLAYER }.length
        move_again_player()
        move_ennemy()
        end_level()
@@ -57,17 +56,17 @@ class Main < Gosu::Window
     end
 
     def draw_area()
-        @area_combat.each_index do |y|
-            @area_combat[y].each_index do |x|
-                if @area_combat[y][x] == VOID
+        @arr.each_index do |y|
+            @arr[y].each_index do |x|
+                if @arr[y][x] == VOID
                     Gosu.draw_rect(x*WIDTH_TILE, y*HEIGHT_TILE, WIDTH_TILE, HEIGHT_TILE,Gosu::Color::BLACK)
-                elsif @area_combat[y][x] == PLAYER
+                elsif @arr[y][x] == PLAYER
                     @player.draw(x*WIDTH_TILE, y*HEIGHT_TILE,1)
-                elsif @area_combat[y][x] == ENNEMY
+                elsif @arr[y][x] == ENNEMY
                     @ennemy.draw(x*WIDTH_TILE, y*HEIGHT_TILE,1)
-                elsif @area_combat[y][x] == BEAM
+                elsif @arr[y][x] == BEAM
                     Gosu.draw_rect(x*WIDTH_TILE+POSITION_BEAM, y*HEIGHT_TILE, WIDTH_TILE_BEAM, HEIGHT_TILE_BEAM,Gosu::Color::RED,1)
-                    @area_combat[y][x] = VOID
+                    @arr[y][x] = VOID
                 end
             end 
         end

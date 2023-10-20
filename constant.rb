@@ -1,7 +1,7 @@
 module Constant
     BEAM = "|"
     PLAYER = "§"
-    VOID = " "
+    VOID = "v"
     ENNEMY = "°"
     WIDTH_TILE = 55
     HEIGHT_TILE = 55
