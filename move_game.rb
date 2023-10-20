@@ -96,8 +96,8 @@ module Move_game
     def move_again_player
         if @number_player == 0
             @count_life -= 1
-            arr = @area_combat.last()
-            num_random = @area_combat.last().length
+            arr = @arr.last()
+            num_random = @arr.last().length
             arr[rand(num_random)] = PLAYER
         end
     end
