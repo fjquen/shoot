@@ -10,14 +10,14 @@ module Move_game
             row_player = pos_row_player / pos_col_player
             col_player = pos_row_player % pos_col_player
             @x = col_player
-            limit_x = pos_col_player - 1
+            limit_x = @arr.last.size - 1
             if @x < limit_x
                 @x += 1
             else
                 @x = limit_x
             end
             return if @arr[row_player][@x] < VOID
-            @arr[row_player][col_player],@arr[row_player][@x] = @arr[row_player][@x],@arr[row_player][col_player]
+                @arr[row_player][col_player],@arr[row_player][@x] = @arr[row_player][@x],@arr[row_player][col_player]
         end
     end
 
@@ -36,7 +36,7 @@ module Move_game
                 @x = limit_x
             end
             return if @arr[row_player][@x] < VOID
-            @arr[row_player][col_player],@arr[row_player][@x] = @arr[row_player][@x],@arr[row_player][col_player]
+                @arr[row_player][col_player],@arr[row_player][@x] = @arr[row_player][@x],@arr[row_player][col_player]
         end
     end
 
@@ -89,8 +89,8 @@ module Move_game
                             @arr[random_legion["y"]][random_legion["x"]] = BEAM
                         end
                     end
-                end
             end
+        end
     end
 
     def move_again_player
