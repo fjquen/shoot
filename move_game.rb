@@ -81,14 +81,15 @@ module Move_game
                 when "b"
                     sum_y_ennemy = random_legion["y"] + 1
                     num_test = @arr.length - sum_y_ennemy
-                    for n in 1..num_test
+                    num_test.times{
                         random_legion["y"] += 1
-                        if @arr[random_legion["y"]][random_legion["x"]] == ENNEMY && random_legion["y"] < n
+                        if @arr[random_legion["y"]][random_legion["x"]] == ENNEMY
                             @arr[random_legion["y"]][random_legion["x"]] = ENNEMY
                         else
-                            @arr[random_legion["y"]][random_legion["x"]] = BEAM
+                                @arr[random_legion["y"]][random_legion["x"]] = BEAM
                         end
-                    end
+                    }
+                        
             end
         end
     end
