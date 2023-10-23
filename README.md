@@ -1,2 +1,4 @@
-# shootFinity
-Mon premier jeu développer sur gosu en ruby pour le moment, je suis en train de le développer n'hesiter pas à regarder.
+# shoot
+Mon premier jeu développer sur gosu en ruby pour le moment, je suis en train de le développer n'hesiter pas à regarder. C'est un vaisseau qui tire sur d'autre vaisseau on peut recommencer un niveau en apppuyant on se déplace en appuyant sur les boutons flêcher du clavier gauche/droite seulement, tu peux tirer en appuyant sur le bouton espace les ennemis se déplace pour le moment de gauche à droite et tire au laser. Pour le moment, je développe le passage de niveau.
+
+My first game developed on gosu in ruby ​​for the moment, I am developing it don't hesitate to watch. It's a ship that shoots at other ships, you can start a level again by pressing, you move by pressing the left/right arrow buttons on the keyboard only, you can shoot by pressing the space button, the enemies move to the moment from left to right and shoot laser. For the moment, I am developing the level crossing.
