@@ -31,9 +31,10 @@ class Main < Gosu::Window
     def update
        @number_ennemy = @arr.flatten.select { |n| n == ENNEMY }.length
        @number_player = @arr.flatten.select { |n| n == PLAYER }.length
-       move_again_player()
+       if @count_life > 0
+        move_again_player()
+       end
        move_ennemy()
-       end_level()
     end
 
     def button_down(id)
@@ -51,7 +52,8 @@ class Main < Gosu::Window
    
     def draw
        draw_area()
-       draw_text
+       draw_text()
+       end_level()
        @background_image.draw(0, 0, 0)
     end
 
@@ -79,7 +81,8 @@ class Main < Gosu::Window
 
     def end_level
          if @count_life == 0
-            close
+            @arr.clear
+            @font.draw_text("Tu as perdu mais tu peux recommencer appuie sur R", 85, 205, 1, 1, 1, Gosu::Color::YELLOW)
          end
     end
 end
