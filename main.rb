@@ -47,6 +47,12 @@ class Main < Gosu::Window
                 move_beam()
             when Gosu::KB_ESCAPE
                 close
+            when Gosu::KB_R
+                @arr=[]
+                File.foreach("maps/map_#@current_level.txt") { |line| 
+                    @arr<<line.split("")
+                }
+                @count_life = 3
         end
     end
    
