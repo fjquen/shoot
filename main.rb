@@ -34,7 +34,7 @@ class Main < Gosu::Window
        if @count_life > 0
         move_again_player()
        end
-       if @number_ennemy == 0
+       if @number_ennemy == 0 && @count_life == 3
             next_level()
        end
        move_ennemy()
