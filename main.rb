@@ -34,6 +34,9 @@ class Main < Gosu::Window
        if @count_life > 0
         move_again_player()
        end
+       if @number_ennemy == 0
+            next_level()
+       end
        move_ennemy()
     end
 
@@ -48,7 +51,6 @@ class Main < Gosu::Window
             when Gosu::KB_ESCAPE
                 close
             when Gosu::KB_R
-                @arr=[]
                 File.foreach("maps/map_#@current_level.txt") { |line| 
                     @arr<<line.split("")
                 }
@@ -90,6 +92,19 @@ class Main < Gosu::Window
             @arr.clear
             @font.draw_text("Tu as perdu mais tu peux recommencer appuie sur R", 85, 205, 1, 1, 1, Gosu::Color::YELLOW)
          end
+    end
+
+    def next_level
+        @current_level += 1
+        path = "maps/map_#@current_level.txt"
+    
+        if File.exist?(path)
+            @arr.clear
+            File.foreach(path) { |line| 
+                @arr<<line.split("")
+            }
+            @count_life = 3
+        end
     end
 end
 Main.new.show
