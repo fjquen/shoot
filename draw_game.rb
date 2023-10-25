@@ -22,7 +22,7 @@ module Draw_game
 
     def draw_text
         @font.draw_text("Nombre d'ennemy à eliminer : #{ @number_ennemy}", 10, 10, 1, 1.0, 1.0, Gosu::Color::YELLOW)
-        @font.draw_text("Nombre de vie player : #{ @count_life}", 450, 10, 1, 1.0, 1.0, Gosu::Color::YELLOW)
+        @font.draw_text("Nombre de vie player : #{ @count_life}", 420, 10, 1, 1.0, 1.0, Gosu::Color::YELLOW)
     end
 
     def draw_game_over
