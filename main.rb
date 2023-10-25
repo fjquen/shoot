@@ -61,7 +61,7 @@ class Main < Gosu::Window
     def draw
        draw_area()
        draw_text()
-       end_level()
+       draw_game_over()
        @background_image.draw(0, 0, 0)
     end
 
@@ -87,7 +87,7 @@ class Main < Gosu::Window
         @font.draw_text("Nombre de vie héro : #{ @count_life}", 450, 10, 1, 1.0, 1.0, Gosu::Color::YELLOW)
     end
 
-    def end_level
+    def draw_game_over
          if @count_life == 0
             @arr.clear
             @font.draw_text("Tu as perdu mais tu peux recommencer appuie sur R", 85, 205, 1, 1, 1, Gosu::Color::YELLOW)
