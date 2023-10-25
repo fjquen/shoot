@@ -1,4 +1,5 @@
 require './constant.rb'
+
 module Move_game
     include Constant
 
