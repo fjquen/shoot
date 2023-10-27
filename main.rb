@@ -13,8 +13,6 @@ class Main < Gosu::Window
     def initialize
         super 640,480
         self.caption = "Shoot"
-        
-        
         @current_level = 0
         @arr=[]
         File.foreach("maps/map_#@current_level.txt") { |line| 
