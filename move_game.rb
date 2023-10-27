@@ -3,6 +3,13 @@ require './constant.rb'
 module Move_game
     include Constant
 
+    ##
+    # The `move_right_player` function moves the player character one position to the right in a 2D
+    # array, if possible.
+    # 
+    # Returns:
+    #   The method is returning nothing (nil) if the condition `@arr[row_player][@x] < VOID` is true.
+    # Otherwise, it is returning the updated @arr.
     def move_right_player()
         player = @arr.flatten.select { |n| n == "§" }.length
         if player>0
@@ -22,6 +29,13 @@ module Move_game
         end
     end
 
+    ##
+    # The function `move_left_player` moves the player character one position to the left in a 2D
+    # array.
+    # 
+    # Returns:
+    #   The method is returning nothing (nil) if the condition `@arr[row_player][@x] < VOID` is true.
+    # Otherwise, it is returning the updated `@arr` array.
     def move_left_player()
         player = @arr.flatten.select { |n| n == "§" }.length
         if player>0
@@ -41,6 +55,9 @@ module Move_game
         end
     end
 
+    ##
+    # The `move_ennemy` function moves the enemy in a 2D array based on random directions and updates
+    # the array accordingly.
     def move_ennemy
         if @number_ennemy>0
             move_ennemy = []
@@ -95,6 +112,9 @@ module Move_game
         end
     end
 
+    ##
+    # The function `move_again_player` decreases the player's life count by 1 and randomly moves the
+    # player to a new position on the game board.
     def move_again_player
         if @number_player == 0
             @count_life -= 1

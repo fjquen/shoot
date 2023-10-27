@@ -2,6 +2,9 @@ require './constant.rb'
 module Beam
     include Constant
     
+    ##
+    # The function `move_beam` moves a beam in a 2D array, updating the positions of the player and
+    # enemies accordingly.
     def move_beam()
         player = @arr.flatten.select { |n| n == "§" }.length
         if player>0

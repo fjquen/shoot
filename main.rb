@@ -10,6 +10,9 @@ class Main < Gosu::Window
     include Beam
     include Draw_game
 
+    # The `initialize` method is a special method in Ruby classes that is automatically called when a
+    # new instance of the class is created. In this case, it is initializing the `Main` class, which
+    # is a subclass of `Gosu::Window`.
     def initialize
         super 640,480
         self.caption = "Shoot"
@@ -28,6 +31,9 @@ class Main < Gosu::Window
         @count_life = 3
     end
     
+    ##
+    # The function "update" checks the number of enemies and player lives, and then calls different
+    # functions based on the conditions.
     def update
        @number_ennemy = @arr.flatten.select { |n| n == ENNEMY }.length
        @number_player = @arr.flatten.select { |n| n == PLAYER }.length
@@ -40,6 +46,9 @@ class Main < Gosu::Window
        move_ennemy()
     end
 
+    # The `button_down` method is a callback method in the `Gosu::Window` class that is called
+    # whenever a button is pressed. In this case, it is used to handle different button presses and
+    # perform corresponding actions.
     def button_down(id)
         case id
             when Gosu::KB_RIGHT,Gosu::GP_RIGHT
@@ -58,6 +67,9 @@ class Main < Gosu::Window
         end
     end
    
+    ##
+    # The function "draw" is responsible for drawing the game area, text, and game over screen using
+    # the background image.
     def draw
        draw_area()
        draw_text()
@@ -65,6 +77,7 @@ class Main < Gosu::Window
        @background_image.draw(0, 0, 0)
     end
 
+    # The `next_level` method is responsible for advancing the game to the next level.
     def next_level
         @current_level += 1
         path = "maps/map_#@current_level.txt"
