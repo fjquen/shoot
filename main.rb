@@ -14,7 +14,7 @@ class Main < Gosu::Window
     # new instance of the class is created. In this case, it is initializing the `Main` class, which
     # is a subclass of `Gosu::Window`.
     def initialize
-        super 640,480
+        super SCREEN_WIDTH,SCREEN_HEIGHT, true
         self.caption = "Shoot"
         @current_level = 0
         @arr=[]
@@ -37,6 +37,8 @@ class Main < Gosu::Window
     def update
        @number_ennemy = @arr.flatten.select { |n| n == ENNEMY }.length
        @number_player = @arr.flatten.select { |n| n == PLAYER }.length
+       puts Gosu.available_width
+       puts Gosu.available_height
        if @count_life > 0
         move_again_player()
        end
