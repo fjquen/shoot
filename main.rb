@@ -35,17 +35,24 @@ class Main < Gosu::Window
     # The function "update" checks the number of enemies and player lives, and then calls different
     # functions based on the conditions.
     def update
-       @number_ennemy = @arr.flatten.select { |n| n == ENNEMY }.length
-       @number_player = @arr.flatten.select { |n| n == PLAYER }.length
-       puts Gosu.available_width
-       puts Gosu.available_height
-       if @count_life > 0
-        move_again_player()
-       end
-       if @number_ennemy == 0 && @count_life > 0
-            next_level()
-       end
-       move_ennemy()
+        @number_ennemy = @arr.flatten.select { |n| n == ENNEMY }.length
+        @number_player = @arr.flatten.select { |n| n == PLAYER }.length
+        puts Gosu.available_width
+        puts Gosu.available_height
+        if @count_life > 0
+            move_again_player()
+        end
+        if @number_ennemy == 0 && @count_life > 0
+                next_level()
+        end
+        move_ennemy()
+
+        if Gosu.button_down? Gosu::KB_LEFT or Gosu::button_down? Gosu::GP_LEFT
+            move_left_player()
+        end
+        if Gosu.button_down? Gosu::KB_RIGHT or Gosu::button_down? Gosu::GP_RIGHT
+            move_right_player()
+        end
     end
 
     # The `button_down` method is a callback method in the `Gosu::Window` class that is called
@@ -53,10 +60,6 @@ class Main < Gosu::Window
     # perform corresponding actions.
     def button_down(id)
         case id
-            when Gosu::KB_RIGHT,Gosu::GP_RIGHT
-                move_right_player()
-            when Gosu::KB_LEFT,Gosu::GP_LEFT
-                move_left_player()
             when Gosu::KB_SPACE,Gosu::GP_BUTTON_1
                 move_beam()
             when Gosu::KB_ESCAPE
