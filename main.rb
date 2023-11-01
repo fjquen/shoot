@@ -37,8 +37,7 @@ class Main < Gosu::Window
     def update
         @number_ennemy = @arr.flatten.select { |n| n == ENNEMY }.length
         @number_player = @arr.flatten.select { |n| n == PLAYER }.length
-        puts Gosu.available_width
-        puts Gosu.available_height
+        
         if @count_life > 0
             move_again_player()
         end
