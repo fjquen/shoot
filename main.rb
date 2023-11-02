@@ -49,9 +49,11 @@ class Main < Gosu::Window
         if Gosu.button_down? Gosu::KB_LEFT or Gosu::button_down? Gosu::GP_LEFT
             move_left_player()
         end
+        
         if Gosu.button_down? Gosu::KB_RIGHT or Gosu::button_down? Gosu::GP_RIGHT
             move_right_player()
         end
+        
         if Gosu.button_down? Gosu::KB_SPACE or Gosu::button_down? Gosu::GP_BUTTON_1
             move_beam()
         end
