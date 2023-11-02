@@ -52,6 +52,9 @@ class Main < Gosu::Window
         if Gosu.button_down? Gosu::KB_RIGHT or Gosu::button_down? Gosu::GP_RIGHT
             move_right_player()
         end
+        if Gosu.button_down? Gosu::KB_SPACE or Gosu::button_down? Gosu::GP_BUTTON_1
+            move_beam()
+        end
     end
 
     # The `button_down` method is a callback method in the `Gosu::Window` class that is called
@@ -59,8 +62,6 @@ class Main < Gosu::Window
     # perform corresponding actions.
     def button_down(id)
         case id
-            when Gosu::KB_SPACE,Gosu::GP_BUTTON_1
-                move_beam()
             when Gosu::KB_ESCAPE
                 close
             when Gosu::KB_R
