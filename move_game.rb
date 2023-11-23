@@ -26,19 +26,11 @@ module Move_game
             case move
                 when "r"
                     limit_x = @arr.last.size - 1
-                    if @x < limit_x
-                        @x += 1
-                    else
-                        @x = limit_x
-                    end
+                    @x += 1 if @x < limit_x
                     
                 when "l"
                     limit_x = 0
-                    if @x > limit_x
-                        @x -= 1
-                    else
-                        @x = limit_x
-                    end
+                    @x -= 1 if @x > limit_x
             end
             return if @arr[row_player][@x] < VOID
                     @arr[row_player][col_player],@arr[row_player][@x] = @arr[row_player][@x],@arr[row_player][col_player]
