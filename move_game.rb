@@ -10,7 +10,7 @@ module Move_game
     # Returns:
     #   The method is returning nothing (nil) if the condition `@arr[row_player][@x] < VOID` is true.
     # Otherwise, it is returning the updated @arr.
-    def move_right_player()
+    def move_player(move)
         player = @arr.flatten.select { |n| n == "§" }.length
         if player>0
             pos_row_player = @arr.flatten.index(PLAYER)
@@ -18,40 +18,25 @@ module Move_game
             row_player = pos_row_player / pos_col_player
             col_player = pos_row_player % pos_col_player
             @x = col_player
-            limit_x = @arr.last.size - 1
-            if @x < limit_x
-                @x += 1
-            else
-                @x = limit_x
+            case move
+                when "r"
+                    limit_x = @arr.last.size - 1
+                    if @x < limit_x
+                        @x += 1
+                    else
+                        @x = limit_x
+                    end
+                    
+                when "l"
+                    limit_x = 0
+                    if @x > limit_x
+                        @x -= 1
+                    else
+                        @x = limit_x
+                    end
             end
             return if @arr[row_player][@x] < VOID
-                @arr[row_player][col_player],@arr[row_player][@x] = @arr[row_player][@x],@arr[row_player][col_player]
-        end
-    end
-
-    ##
-    # The function `move_left_player` moves the player character one position to the left in a 2D
-    # array.
-    # 
-    # Returns:
-    #   The method is returning nothing (nil) if the condition `@arr[row_player][@x] < VOID` is true.
-    # Otherwise, it is returning the updated `@arr` array.
-    def move_left_player()
-        player = @arr.flatten.select { |n| n == "§" }.length
-        if player>0
-            pos_row_player = @arr.flatten.index(PLAYER)
-            pos_col_player = @arr.first.size
-            row_player = pos_row_player / pos_col_player
-            col_player = pos_row_player % pos_col_player
-            @x = col_player
-            limit_x = 0
-            if @x > limit_x
-                @x -= 1
-            else
-                @x = limit_x
-            end
-            return if @arr[row_player][@x] < VOID
-                @arr[row_player][col_player],@arr[row_player][@x] = @arr[row_player][@x],@arr[row_player][col_player]
+                    @arr[row_player][col_player],@arr[row_player][@x] = @arr[row_player][@x],@arr[row_player][col_player]
         end
     end
 

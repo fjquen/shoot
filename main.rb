@@ -26,6 +26,7 @@ class Main < Gosu::Window
         @x=@y=0
         @font = Gosu::Font.new(20)
         @tab_move_ennemy = ["r","l","s","b"]
+        @tab_move_player = ["r","l"]
         self.update_interval = 100
         @background_image = Gosu::Image.new("media/space.png", :tileable => true)
         @count_life = 3
@@ -47,11 +48,11 @@ class Main < Gosu::Window
         move_ennemy()
 
         if Gosu.button_down? Gosu::KB_LEFT or Gosu::button_down? Gosu::GP_LEFT
-            move_left_player()
+            move_player(@tab_move_player[1])
         end
         
         if Gosu.button_down? Gosu::KB_RIGHT or Gosu::button_down? Gosu::GP_RIGHT
-            move_right_player()
+            move_player(@tab_move_player[0])
         end
         
         if Gosu.button_down? Gosu::KB_SPACE or Gosu::button_down? Gosu::GP_BUTTON_1
