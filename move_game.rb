@@ -3,13 +3,18 @@ require './constant.rb'
 module Move_game
     include Constant
 
+    
     ##
-    # The `move_right_player` function moves the player character one position to the right in a 2D
-    # array, if possible.
+    # The `move_player` function moves the player character in a 2D array based on the input move
+    # direction.
+    # 
+    # Args:
+    #   move: The parameter "move" is a string that represents the direction in which the player wants
+    # to move. It can be either "r" for right or "l" for left.
     # 
     # Returns:
-    #   The method is returning nothing (nil) if the condition `@arr[row_player][@x] < VOID` is true.
-    # Otherwise, it is returning the updated @arr.
+    #   The code is returning nothing if the condition `@arr[row_player][@x] < VOID` is true.
+    # Otherwise, it is returning the updated `@arr` array.
     def move_player(move)
         player = @arr.flatten.select { |n| n == "§" }.length
         if player>0
