@@ -86,7 +86,7 @@ module Move_game
                         if @arr[random_legion["y"]][random_legion["x"]] == ENNEMY
                             @arr[random_legion["y"]][random_legion["x"]] = ENNEMY
                         else
-                                @arr[random_legion["y"]][random_legion["x"]] = BEAM
+                            @arr[random_legion["y"]][random_legion["x"]] = BEAM
                         end
                     }
                         
