@@ -14,7 +14,7 @@ class Main < Gosu::Window
     # new instance of the class is created. In this case, it is initializing the `Main` class, which
     # is a subclass of `Gosu::Window`.
     def initialize
-        super SCREEN_WIDTH,SCREEN_HEIGHT, true
+        super SCREEN_WIDTH,SCREEN_HEIGHT
         self.caption = "Shoot"
         @current_level = 0
         @arr=[]
