@@ -96,6 +96,8 @@ class Main < Gosu::Window
                 @arr<<line.split("")
             }
             @count_life = 3
+        else
+            close
         end
     end
 end
