@@ -16,6 +16,7 @@ class Main < Gosu::Window
     def initialize
         super SCREEN_WIDTH,SCREEN_HEIGHT
         self.caption = "Shoot"
+        self.resizable = true
         @current_level = 0
         @arr=[]
         File.foreach("maps/map_#@current_level.txt") { |line| 
@@ -28,7 +29,7 @@ class Main < Gosu::Window
         @tab_move_ennemy = ["r","l","s","b"]
         @tab_move_player = ["r","l"]
         self.update_interval = 100
-        @background_image = Gosu::Image.new("media/space.png", :tileable => true)
+        @background_image = Gosu::Image.new("media/space.png")
         @count_life = 3
     end
     
