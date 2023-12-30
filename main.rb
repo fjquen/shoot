@@ -14,9 +14,8 @@ class Main < Gosu::Window
     # new instance of the class is created. In this case, it is initializing the `Main` class, which
     # is a subclass of `Gosu::Window`.
     def initialize
-        super SCREEN_WIDTH,SCREEN_HEIGHT
+        super SCREEN_WIDTH,SCREEN_HEIGHT,true
         self.caption = "Shoot"
-        self.resizable = true
         @current_level = 0
         @arr=[]
         File.foreach("maps/map_#@current_level.txt") { |line| 
