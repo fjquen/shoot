@@ -14,7 +14,7 @@ class Main < Gosu::Window
     # new instance of the class is created. In this case, it is initializing the `Main` class, which
     # is a subclass of `Gosu::Window`.
     def initialize
-        super SCREEN_WIDTH,SCREEN_HEIGHT,true
+        super SCREEN_WIDTH,SCREEN_HEIGHT,true,100
         self.caption = "Shoot"
         @current_level = 0
         @arr=[]
@@ -30,7 +30,6 @@ class Main < Gosu::Window
         @font = Gosu::Font.new(20)
         @tab_move_ennemy = ["r","l","s","b"]
         @tab_move_player = ["r","l"]
-        self.update_interval = 100
         
         @background_image = Gosu::Image.new("media/space.png")
         @count_life = 3
