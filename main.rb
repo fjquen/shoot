@@ -22,6 +22,9 @@ class Main < Gosu::Window
         File.foreach("maps/map_#@current_level.txt") { |line| 
             @arr<<line.split("")
         }
+        
+        
+
         @player = Gosu::Image.new("media/playerShip1_blue.png")
         @ennemy = Gosu::Image.new("media/enemyRed1.png")
         @x=@y=0
@@ -29,6 +32,7 @@ class Main < Gosu::Window
         @tab_move_ennemy = ["r","l","s","b"]
         @tab_move_player = ["r","l"]
         self.update_interval = 100
+        
         @background_image = Gosu::Image.new("media/space.png")
         @count_life = 3
     end
@@ -80,10 +84,12 @@ class Main < Gosu::Window
     # The function "draw" is responsible for drawing the game area, text, and game over screen using
     # the background image.
     def draw
+       fx = SCREEN_WIDTH/@background_image.width
+       fy = SCREEN_HEIGHT/@background_image.height
        draw_area()
        draw_text()
        draw_game_over()
-       @background_image.draw(0, 0, 0)
+       @background_image.draw(0, 0, 0,fx, fy)
     end
 
     # The `next_level` method is responsible for advancing the game to the next level.
