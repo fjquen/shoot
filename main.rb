@@ -84,12 +84,10 @@ class Main < Gosu::Window
     # The function "draw" is responsible for drawing the game area, text, and game over screen using
     # the background image.
     def draw
-       fx = SCREEN_WIDTH/@background_image.width
-       fy = SCREEN_HEIGHT/@background_image.height
        draw_area()
        draw_text()
        draw_game_over()
-       @background_image.draw(0, 0, 0,fx, fy)
+       @background_image.draw(0, 0, 0)
     end
 
     # The `next_level` method is responsible for advancing the game to the next level.
