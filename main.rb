@@ -66,7 +66,7 @@ class Main < Gosu::Window
         case id
             when Gosu::KB_ESCAPE
                 close
-            when Gosu::KB_R
+            when Gosu::KB_R, Gosu::GP_BUTTON_2
               if @count_life == 0
                 File.foreach("maps/map_#@current_level.txt") { |line| 
                     @arr<<line.split("")
