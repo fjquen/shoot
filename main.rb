@@ -25,11 +25,11 @@ class Main < Gosu::Window
         
         @player = Gosu::Image.new("media/playerShip1_blue.png")
         @ennemy = Gosu::Image.new("media/enemyRed1.png")
-        @x=@y=0
+        @x=@y=@yBeam=0
         @font = Gosu::Font.new(20)
         @tab_move_ennemy = ["r","l","s","b"]
         @tab_move_player = ["r","l"]
-        
+        @bool = false
         @background_image = Gosu::Image.new("media/space.png")
         @count_life = 3
     end
@@ -49,7 +49,10 @@ class Main < Gosu::Window
         end
 
         move_ennemy()
-
+        if @bool
+            beam()
+        end
+        
         if Gosu.button_down? Gosu::KB_LEFT or Gosu::button_down? Gosu::GP_LEFT
             move_player(@tab_move_player[1])
         end
@@ -76,7 +79,7 @@ class Main < Gosu::Window
             when Gosu::KB_SPACE, Gosu::GP_BUTTON_1
                 move_beam()
             when Gosu::KB_Q
-                beam()
+                @bool = true
         end
     end
    
