@@ -49,6 +49,7 @@ class Main < Gosu::Window
         if @number_ennemy == 0 && @count_life > 0
             next_level()
         end
+        
         move_ennemy()
 
         if Gosu.button_down? Gosu::KB_LEFT or Gosu::button_down? Gosu::GP_LEFT
