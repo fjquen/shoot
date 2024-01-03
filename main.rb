@@ -22,6 +22,7 @@ class Main < Gosu::Window
             @arr<<line.split("")
         }
         
+        
         @player = Gosu::Image.new("media/playerShip1_blue.png")
         @ennemy = Gosu::Image.new("media/enemyRed1.png")
         @x=@y=0
@@ -74,6 +75,8 @@ class Main < Gosu::Window
               end
             when Gosu::KB_SPACE, Gosu::GP_BUTTON_1
                 move_beam()
+            when Gosu::KB_Q
+                beam()
         end
     end
    
