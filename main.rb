@@ -22,15 +22,12 @@ class Main < Gosu::Window
             @arr<<line.split("")
         }
         
-        
-
         @player = Gosu::Image.new("media/playerShip1_blue.png")
         @ennemy = Gosu::Image.new("media/enemyRed1.png")
         @x=@y=0
         @font = Gosu::Font.new(20)
         @tab_move_ennemy = ["r","l","s","b"]
         @tab_move_player = ["r","l"]
-        
         
         @background_image = Gosu::Image.new("media/space.png")
         @count_life = 3
