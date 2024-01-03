@@ -43,13 +43,4 @@ module Beam
             end
         end
     end
-
-
-    def beam()
-        @arr.each_index do |y|
-            @arr[y].each_index do |x|
-                
-            end
-        end
-    end
 end
