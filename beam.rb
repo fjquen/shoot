@@ -8,12 +8,12 @@ module Beam
     def move_beam()
         player = @arr.flatten.select { |n| n == PLAYER }.length
         if player>0
-        pos_row_player = @arr.flatten.index(PLAYER)
-        pos_col_player = @arr.first.size
-        row_player = pos_row_player / pos_col_player
-        col_player = pos_row_player % pos_col_player
-        @y = row_player
-        @y -= 1
+            pos_row_player = @arr.flatten.index(PLAYER)
+            pos_col_player = @arr.first.size
+            row_player = pos_row_player / pos_col_player
+            col_player = pos_row_player % pos_col_player
+            @y = row_player
+            @y -= 1
             @arr.each_index do |y|
                 @arr[y].each_index do |x|
                     if @arr[@y][col_player] == VOID
@@ -40,6 +40,15 @@ module Beam
                         end
                     end
                 end
+            end
+        end
+    end
+
+
+    def beam()
+        @arr.each_index do |y|
+            @arr[y].each_index do |x|
+                
             end
         end
     end
