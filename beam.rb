@@ -19,24 +19,24 @@ module Beam
                     if @arr[@y][col_player] == VOID
                         if col_player==x && y==@y
                             @arr[y][x] = BEAM
-                                for y in 0..@arr.length
-                                    next if @arr[@y][col_player] == VOID
-                                        y-= 1
-                                        @arr[y][x] = BEAM
-                                        player = @arr.length - 1
-                                        @arr[player][col_player] = PLAYER
-                                end
+                            for y in 0..@arr.length
+                                next if @arr[@y][col_player] == VOID
+                                    y-= 1
+                                    @arr[y][x] = BEAM
+                                    player = @arr.length - 1
+                                    @arr[player][col_player] = PLAYER
+                            end
                         end
                     elsif @arr[@y][col_player] == ENNEMY
                         if col_player==x && y==@y
                             @arr[y][x] = BEAM
-                                for y in 0..@arr.length
-                                    next if @arr[@y][col_player] == ENNEMY
-                                        y-= 1
-                                        @arr[y][x] = BEAM
-                                        player = @arr.length - 1
-                                        @arr[player][col_player] = PLAYER
-                                end
+                            for y in 0..@arr.length
+                                next if @arr[@y][col_player] == ENNEMY
+                                    y-= 1
+                                    @arr[y][x] = BEAM
+                                    player = @arr.length - 1
+                                    @arr[player][col_player] = PLAYER
+                            end
                         end
                     end
                 end
