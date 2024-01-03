@@ -44,7 +44,6 @@ module Beam
         end
     end
 
-
     def beam()
         player = @arr.flatten.select { |n| n == PLAYER }.length
         puts player
