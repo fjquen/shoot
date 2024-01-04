@@ -53,5 +53,8 @@ module Beam
         @arr[@yBeam][col_player] = BEAM
         player = @arr.length - 1
         @arr[player][col_player] = PLAYER
+        y_after = col_player
+        y_after-=1
+        puts @arr[@yBeam][y_after]
     end
 end
