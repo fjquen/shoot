@@ -47,7 +47,6 @@ module Beam
     def beam()
         pos_row_player = @arr.flatten.index(PLAYER)
         pos_col_player = @arr.first.size
-        row_player = pos_row_player / pos_col_player
         col_player = pos_row_player % pos_col_player
         @yBeam-=2
         @arr[@yBeam][col_player] = BEAM
