@@ -32,6 +32,7 @@ class Main < Gosu::Window
         @bool = false
         @background_image = Gosu::Image.new("media/space.png")
         @count_life = 3
+        @pos_player = @arr.flatten.index(PLAYER) / @arr.first.size
     end
     
     ##
@@ -50,7 +51,8 @@ class Main < Gosu::Window
 
         move_ennemy()
 
-        if @bool
+        
+        if @bool && @yBeam> -@pos_player
             beam()
         end
         
@@ -81,6 +83,7 @@ class Main < Gosu::Window
                 move_beam()
             when Gosu::KB_Q
                 @bool = true
+                @yBeam = 0
         end
     end
    

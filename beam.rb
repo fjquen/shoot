@@ -46,15 +46,12 @@ module Beam
 
     def beam()
         player = @arr.flatten.select { |n| n == PLAYER }.length
-        pos_row_player = @arr.flatten.index(PLAYER)
-        pos_col_player = @arr.first.size
-        col_player = pos_row_player % pos_col_player
+        col_player = @arr.flatten.index(PLAYER) % @arr.first.size
+        y_after = col_player
+        y_after-=1
         @yBeam-=1
         @arr[@yBeam][col_player] = BEAM
         player = @arr.length - 1
         @arr[player][col_player] = PLAYER
-        y_after = col_player
-        y_after-=1
-        puts @arr[@yBeam][y_after]
     end
 end
