@@ -49,6 +49,7 @@ class Main < Gosu::Window
         end
 
         move_ennemy()
+
         if @bool
             beam()
         end
