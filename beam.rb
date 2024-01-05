@@ -44,7 +44,7 @@ module Beam
         end
     end
 
-    def beam()
+    def slow_beam()
         player = @arr.flatten.select { |n| n == PLAYER }.length
         if !@arr.flatten.index(PLAYER).nil? && !@arr.first.size.nil?
             col_player = @arr.flatten.index(PLAYER) % @arr.first.size
