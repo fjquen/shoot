@@ -52,7 +52,7 @@ class Main < Gosu::Window
         move_ennemy()
 
         
-        if @bool && @yBeam> -@pos_player
+        if @bool && @yBeam > -@pos_player
             beam()
         end
         
