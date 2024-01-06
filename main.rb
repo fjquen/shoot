@@ -53,7 +53,7 @@ class Main < Gosu::Window
 
         
         if @bool && @yBeam > -@pos_player
-            beam()
+            slow_beam()
         end
         
         if Gosu.button_down? Gosu::KB_LEFT or Gosu::button_down? Gosu::GP_LEFT
