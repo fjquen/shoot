@@ -79,9 +79,7 @@ class Main < Gosu::Window
                 }
                 @count_life = 3
               end
-            when Gosu::KB_SPACE, Gosu::GP_BUTTON_1
-                move_beam()
-            when Gosu::KB_Q
+            when Gosu::KB_Q,Gosu::GP_BUTTON_1
                 @bool = true
                 @yBeam = 0
         end
