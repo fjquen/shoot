@@ -33,6 +33,7 @@ class Main < Gosu::Window
         @background_image = Gosu::Image.new("media/space.png")
         @count_life = 3
         @pos_player = @arr.flatten.index(PLAYER) / @arr.first.size
+        @end = false
     end
     
     ##
@@ -42,7 +43,7 @@ class Main < Gosu::Window
         @number_ennemy = @arr.flatten.select { |n| n == ENNEMY }.length
         @number_player = @arr.flatten.select { |n| n == PLAYER }.length
         
-        if @count_life > 0
+        if @count_life > 0 && !@end
             move_again_player()
         end
         if @number_ennemy == 0 && @count_life > 0
@@ -93,6 +94,9 @@ class Main < Gosu::Window
        draw_text()
        draw_game_over()
        @background_image.draw(0, 0, 0)
+       if @end
+         draw_game_end()
+       end
     end
 
     # The `next_level` method is responsible for advancing the game to the next level.
@@ -107,7 +111,7 @@ class Main < Gosu::Window
             }
             @count_life = 3
         else
-            close
+            @end = true
         end
     end
 end

@@ -32,4 +32,9 @@ module Draw_game
          end
     end
 
+    def draw_game_end
+        @arr.clear
+        @font.draw_text("Tu as fini le jeu, tu as gagné !\nTu peux quitter le jeu en appuyant sur le bouton ECHAP", 85, 205, 1, 1, 1, Gosu::Color::YELLOW)
+    end
+
 end
