@@ -22,7 +22,6 @@ class Main < Gosu::Window
             @arr<<line.split("")
         }
         
-        
         @player = Gosu::Image.new("media/playerShip1_blue.png")
         @ennemy = Gosu::Image.new("media/enemyRed1.png")
         @x=@y=@yBeam=0
@@ -34,6 +33,7 @@ class Main < Gosu::Window
         @count_life = 3
         @pos_player = @arr.flatten.index(PLAYER) / @arr.first.size
         @end = false
+        @positionPlayer = @arr.flatten.select { |n| n == PLAYER }.length
     end
     
     ##

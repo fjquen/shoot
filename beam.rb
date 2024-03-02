@@ -6,8 +6,7 @@ module Beam
     # The function `move_beam` moves a beam in a 2D array, updating the positions of the player and
     # enemies accordingly.
     def move_beam()
-        player = @arr.flatten.select { |n| n == PLAYER }.length
-        if player>0
+        if @positionPlayer>0
             pos_row_player = @arr.flatten.index(PLAYER)
             pos_col_player = @arr.first.size
             row_player = pos_row_player / pos_col_player
@@ -45,13 +44,12 @@ module Beam
     end
 
     def shot_beam()
-        player = @arr.flatten.select { |n| n == PLAYER }.length
         if !@arr.flatten.index(PLAYER).nil? && !@arr.first.size.nil?
             col_player = @arr.flatten.index(PLAYER) % @arr.first.size
             @yBeam-=1
             @arr[@yBeam][col_player] = BEAM
-            player = @arr.length - 1
-            @arr[player][col_player] = PLAYER
+            @positionPlayer = @arr.length - 1
+            @arr[@positionPlayer][col_player] = PLAYER
         end
     end
 end
