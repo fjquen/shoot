@@ -1,8 +1,11 @@
 require 'gosu'
+
 require './constant.rb'
 require './move_game.rb'
 require './beam.rb'
 require './draw_game.rb'
+
+
 
 class Main < Gosu::Window
     include Constant
@@ -34,6 +37,8 @@ class Main < Gosu::Window
         @pos_player = @arr.flatten.index(PLAYER) / @arr.first.size
         @end = false
         @positionPlayer = @arr.flatten.select { |n| n == PLAYER }.length
+        @yBeamTest = @pos_player -1
+        @arrShort = []
     end
     
     ##
@@ -49,9 +54,22 @@ class Main < Gosu::Window
         if @number_ennemy == 0 && @count_life > 0
             next_level()
         end
-
+        
         move_ennemy()
+        @arr.each_index do |y|
+            @arr[y].each_index do |x|
+                if @arr[y][x] == BEAM_TEST
+                    @arrShort<<{"x"=>x,"y"=>y}
+                end
+            end
+        end
 
+        @arrShort.each_index do |index|
+            yBeam = @arrShort[index]["y"]
+            yBeam-=1
+            @arr[yBeam][@arrShort[index]["x"]] = BEAM_TEST
+            puts yBeam
+        end
         
         if @bool && @yBeam > -@pos_player
             shot_beam()
@@ -83,6 +101,15 @@ class Main < Gosu::Window
             when Gosu::KB_Q,Gosu::GP_BUTTON_1
                 @bool = true
                 @yBeam = 0
+            when Gosu::KB_A
+                if !@arr.flatten.index(PLAYER).nil? && !@arr.first.size.nil?
+                    col_player = @arr.flatten.index(PLAYER) % @arr.first.size
+                    @arr[@yBeamTest][col_player] = BEAM_TEST
+                    @positionPlayer = @arr.length - 1
+                    @arr[@positionPlayer][col_player] = PLAYER
+                end
+
+                
         end
     end
    

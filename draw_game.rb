@@ -15,6 +15,8 @@ module Draw_game
                 elsif @arr[y][x] == BEAM
                     Gosu.draw_rect(x*WIDTH_TILE+POSITION_BEAM, y*HEIGHT_TILE, WIDTH_TILE_BEAM, HEIGHT_TILE_BEAM,Gosu::Color::RED,1)
                     @arr[y][x] = VOID
+                elsif @arr[y][x] == BEAM_TEST
+                    Gosu.draw_rect(x*WIDTH_TILE+POSITION_BEAM, y*HEIGHT_TILE, WIDTH_TILE_BEAM, HEIGHT_TILE_BEAM,Gosu::Color::GREEN,1)
                 end
             end 
         end
