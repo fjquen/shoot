@@ -65,10 +65,13 @@ class Main < Gosu::Window
         end
 
         @arrShort.each_index do |index|
-            yBeam = @arrShort[index]["y"]
-            yBeam-=1
-            @arr[yBeam][@arrShort[index]["x"]] = BEAM_TEST
-            puts yBeam
+            if !@arr.flatten.index(PLAYER).nil? && !@arr.first.size.nil?
+                yBeam = @arrShort[index]["y"]
+                yBeam-=1
+                @arr[yBeam][@arrShort[index]["x"]] = BEAM_TEST
+                yBeam+=1
+                @arr[yBeam][@arrShort[index]["x"]] = VOID
+            end
         end
         
         if @bool && @yBeam > -@pos_player
