@@ -70,6 +70,7 @@ class Main < Gosu::Window
                             yBeam+=1
                             @arr[yBeam][@arrShort[index]["x"]] = VOID
                         end
+                        @arr[0][x] = VOID
                         @arrShort.clear
                     end
                 end
