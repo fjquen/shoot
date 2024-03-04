@@ -59,18 +59,17 @@ class Main < Gosu::Window
         @arr.each_index do |y|
             @arr[y].each_index do |x|
                 if @arr[y][x] == BEAM_TEST && y != 0
-                    @arrShort<<{"x"=>x,"y"=>y}
+                    @arrShort<<{"x"=>x,"y"=>y}    
                 end
-            end
-        end
-
-        @arrShort.each_index do |index|
-            if !@arr.flatten.index(PLAYER).nil? && !@arr.first.size.nil?
-                yBeam = @arrShort[index]["y"]
-                yBeam-=1
-                @arr[yBeam][@arrShort[index]["x"]] = BEAM_TEST
-                yBeam+=1
-                @arr[yBeam][@arrShort[index]["x"]] = VOID
+                @arrShort.each_index do |index|
+                    if !@arr.flatten.index(PLAYER).nil? && !@arr.first.size.nil?
+                        yBeam = @arrShort[index]["y"]
+                        yBeam-=1
+                        @arr[yBeam][@arrShort[index]["x"]] = BEAM_TEST
+                        yBeam+=1
+                        @arr[yBeam][@arrShort[index]["x"]] = VOID
+                    end
+                end
             end
         end
         
