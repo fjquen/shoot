@@ -58,7 +58,7 @@ class Main < Gosu::Window
         move_ennemy()
         @arr.each_index do |y|
             @arr[y].each_index do |x|
-                if @arr[y][x] == BEAM_TEST
+                if @arr[y][x] == BEAM_TEST && y != 0
                     @arrShort<<{"x"=>x,"y"=>y}
                 end
             end
