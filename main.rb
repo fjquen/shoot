@@ -56,6 +56,10 @@ class Main < Gosu::Window
         end
         
         move_ennemy()
+        # This block of code is iterating over each element in the `@arr` array, which represents the
+        # game map. For each element, it is checking if the value is equal to `BEAM_TEST` and the
+        # current row `y` is not the first row (y != 0). If these conditions are met, it adds a hash
+        # containing the x and y coordinates to the `@arrShort` array.
         @arr.each_index do |y|
             @arr[y].each_index do |x|
                 if @arr[y][x] == BEAM_TEST && y != 0
@@ -108,6 +112,11 @@ class Main < Gosu::Window
                 @bool = true
                 @yBeam = 0
             when Gosu::KB_A
+                # This block of code is checking if the index of the `PLAYER` character is found in
+                # the flattened `@arr` array and if the size of the first row of `@arr` is not nil. If
+                # these conditions are met, it calculates the column position of the player
+                # (`col_player`) by taking the modulo of the index of the player in the flattened
+                # array with the size of the first row.
                 if !@arr.flatten.index(PLAYER).nil? && !@arr.first.size.nil?
                     col_player = @arr.flatten.index(PLAYER) % @arr.first.size
                     @arr[@yBeamTest][col_player] = BEAM_TEST
