@@ -1,5 +1,3 @@
-require 'gosu'
-
 # The code is defining a Ruby module called `Constant`. Inside the module, there are several constants
 # defined, each representing a different value:
 module Constant
