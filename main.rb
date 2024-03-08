@@ -81,10 +81,6 @@ class Main < Gosu::Window
             end
         end
         
-        if @bool && @yBeam > -@pos_player
-            shot_beam()
-        end
-        
         if Gosu.button_down? Gosu::KB_LEFT or Gosu::button_down? Gosu::GP_LEFT
             move_player(@tab_move_player[1])
         end
@@ -108,10 +104,7 @@ class Main < Gosu::Window
                 }
                 @count_life = 3
               end
-            when Gosu::KB_Q,Gosu::GP_BUTTON_1
-                @bool = true
-                @yBeam = 0
-            when Gosu::KB_A
+            when Gosu::KB_A,Gosu::GP_BUTTON_1
                 # This block of code is checking if the index of the `PLAYER` character is found in
                 # the flattened `@arr` array and if the size of the first row of `@arr` is not nil. If
                 # these conditions are met, it calculates the column position of the player

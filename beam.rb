@@ -42,14 +42,4 @@ module Beam
             end
         end
     end
-
-    def shot_beam()
-        if !@arr.flatten.index(PLAYER).nil? && !@arr.first.size.nil?
-            col_player = @arr.flatten.index(PLAYER) % @arr.first.size
-            @yBeam-=1
-            @arr[@yBeam][col_player] = BEAM
-            @positionPlayer = @arr.length - 1
-            @arr[@positionPlayer][col_player] = PLAYER
-        end
-    end
 end
