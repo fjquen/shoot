@@ -42,4 +42,28 @@ module Beam
             end
         end
     end
+
+
+    def gun_beam()
+        @arr.each_index do |y|
+            @arr[y].each_index do |x|
+                if @arr[y][x] == BEAM_TEST && y != 0
+                    @arrShort<<{"x"=>x,"y"=>y}    
+                end
+                @arrShort.each_index do |index|
+                    if !@arr.flatten.index(PLAYER).nil? && !@arr.first.size.nil?
+                        yBeam = @arrShort[index]["y"]
+                        if @arr[yBeam][@arrShort[index]["x"]] < VOID
+                            yBeam-=1
+                            @arr[yBeam][@arrShort[index]["x"]] = BEAM_TEST
+                            yBeam+=1
+                            @arr[yBeam][@arrShort[index]["x"]] = VOID
+                        end
+                        @arr[0][x] = VOID
+                        @arrShort.clear
+                    end
+                end
+            end
+        end
+    end
 end

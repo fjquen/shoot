@@ -60,26 +60,7 @@ class Main < Gosu::Window
         # game map. For each element, it is checking if the value is equal to `BEAM_TEST` and the
         # current row `y` is not the first row (y != 0). If these conditions are met, it adds a hash
         # containing the x and y coordinates to the `@arrShort` array.
-        @arr.each_index do |y|
-            @arr[y].each_index do |x|
-                if @arr[y][x] == BEAM_TEST && y != 0
-                    @arrShort<<{"x"=>x,"y"=>y}    
-                end
-                @arrShort.each_index do |index|
-                    if !@arr.flatten.index(PLAYER).nil? && !@arr.first.size.nil?
-                        yBeam = @arrShort[index]["y"]
-                        if @arr[yBeam][@arrShort[index]["x"]] < VOID
-                            yBeam-=1
-                            @arr[yBeam][@arrShort[index]["x"]] = BEAM_TEST
-                            yBeam+=1
-                            @arr[yBeam][@arrShort[index]["x"]] = VOID
-                        end
-                        @arr[0][x] = VOID
-                        @arrShort.clear
-                    end
-                end
-            end
-        end
+        gun_beam()
         
         if Gosu.button_down? Gosu::KB_LEFT or Gosu::button_down? Gosu::GP_LEFT
             move_player(@tab_move_player[1])
