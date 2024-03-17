@@ -42,7 +42,7 @@ module Move_game
     # the array accordingly.
     def move_ennemy
         if @number_ennemy>0
-            move_ennemy = []f
+            move_ennemy = []
             @arr.each_index do |y|
                 @arr[y].each_index do |x|
                     if @arr[y][x] == ENNEMY
