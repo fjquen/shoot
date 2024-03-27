@@ -4,17 +4,20 @@ module Move_game
     include Constant
 
     
+    
     ##
-    # The `move_player` function moves the player character in a 2D array based on the input move
-    # direction.
+    # Cette fonction Ruby `move_player` est conçue pour déplacer un joueur représenté par le symbole
+    # "§" dans un tableau 2D en fonction de la direction d'entrée ("r" pour droite, "l" pour gauche)
+    # tout en considérant les limites du tableau.
     # 
     # Args:
-    #   move: The parameter "move" is a string that represents the direction in which the player wants
-    # to move. It can be either "r" for right or "l" for left.
+    #   move: La méthode `move_player` prend un paramètre `move`, qui représente la direction dans
+    # laquelle le joueur doit se déplacer. Les valeurs possibles pour `move` sont "r" pour droite et
+    # "l" pour gauche.
     # 
     # Returns:
-    #   The code is returning nothing if the condition `@arr[row_player][@x] < VOID` is true.
-    # Otherwise, it is returning the updated `@arr` array.
+    #   La méthode `move_player` renvoie `nil` si la condition `@arr[row_player][@x] < VOID` n'est pas
+    # remplie.
     def move_player(move)
         player = @arr.flatten.select { |n| n == "§" }.length
         if player>0
@@ -37,9 +40,10 @@ module Move_game
         end
     end
 
+    
     ##
-    # The `move_ennemy` function moves the enemy in a 2D array based on random directions and updates
-    # the array accordingly.
+    # La fonction `move_ennemy` dans Ruby déplace les personnages ennemis dans un tableau 2D basé sur
+    # des directions aléatoires et met à jour leurs positions en conséquence.
     def move_ennemy
         if @number_ennemy>0
             move_ennemy = []
@@ -94,9 +98,10 @@ module Move_game
         end
     end
 
+    
     ##
-    # The function `move_again_player` decreases the player's life count by 1 and randomly moves the
-    # player to a new position on the game board.
+    # Cette fonction Ruby diminue le nombre de points de vie du joueur et déplace le joueur de manière
+    # aléatoire vers une nouvelle position s'il est à la position 0.
     def move_again_player
         if @number_player == 0
             @count_life -= 1

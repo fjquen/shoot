@@ -13,9 +13,9 @@ class Main < Gosu::Window
     include Beam
     include Draw_game
 
-    # The `initialize` method is a special method in Ruby classes that is automatically called when a
-    # new instance of the class is created. In this case, it is initializing the `Main` class, which
-    # is a subclass of `Gosu::Window`.
+    
+    # La méthode `initialize` dans Ruby est une méthode spéciale qui est automatiquement appelée
+    # lorsqu'une nouvelle instance d'une classe est créée. Dans cet extrait de code spécifique :
     def initialize
         super SCREEN_WIDTH,SCREEN_HEIGHT,true,100
         self.caption = "Shoot"
@@ -41,9 +41,11 @@ class Main < Gosu::Window
         @arrShort = []
     end
     
+    
     ##
-    # The function "update" checks the number of enemies and player lives, and then calls different
-    # functions based on the conditions.
+    # La fonction « mise à jour » dans cet extrait de code Ruby gère diverses logiques de jeu telles
+    # que la mise à jour du nombre de joueurs et d'ennemis, le déplacement des joueurs et des ennemis
+    # et la vérification des conditions pour passer au niveau suivant.
     def update
         @number_ennemy = @arr.flatten.select { |n| n == ENNEMY }.length
         @number_player = @arr.flatten.select { |n| n == PLAYER }.length
@@ -56,12 +58,14 @@ class Main < Gosu::Window
         end
         
         move_ennemy()
-        # This block of code is iterating over each element in the `@arr` array, which represents the
-        # game map. For each element, it is checking if the value is equal to `BEAM_TEST` and the
-        # current row `y` is not the first row (y != 0). If these conditions are met, it adds a hash
-        # containing the x and y coordinates to the `@arrShort` array.
+        
+        # La méthode `gun_beam()` dans l'extrait de code Ruby est responsable de la gestion de la
+        # logique liée au tir d'un faisceau dans le jeu. Voici un aperçu de ce que fait la méthode
+        # `gun_beam()` :
         gun_beam()
         
+        # L'extrait de code que vous avez fourni vérifie les pressions sur les boutons permettant de
+        # déplacer le personnage du joueur dans le jeu. Voici un aperçu de ce qu'il fait :
         if Gosu.button_down? Gosu::KB_LEFT or Gosu::button_down? Gosu::GP_LEFT
             move_player(@tab_move_player[1])
         end
@@ -71,9 +75,10 @@ class Main < Gosu::Window
         end
     end
 
-    # The `button_down` method is a callback method in the `Gosu::Window` class that is called
-    # whenever a button is pressed. In this case, it is used to handle different button presses and
-    # perform corresponding actions.
+    
+    # La méthode `button_down` dans l'extrait de code Ruby fourni est une méthode de rappel qui gère
+    # les événements d'entrée de l'utilisateur, en particulier les pressions sur une touche/un bouton.
+    # Voici un aperçu de ce qu'il fait :
     def button_down(id)
         case id
             when Gosu::KB_ESCAPE
@@ -86,11 +91,10 @@ class Main < Gosu::Window
                 @count_life = 3
               end
             when Gosu::KB_A,Gosu::GP_BUTTON_1
-                # This block of code is checking if the index of the `PLAYER` character is found in
-                # the flattened `@arr` array and if the size of the first row of `@arr` is not nil. If
-                # these conditions are met, it calculates the column position of the player
-                # (`col_player`) by taking the modulo of the index of the player in the flattened
-                # array with the size of the first row.
+                
+                # Ce bloc de code vérifie si le personnage du joueur existe dans la grille de jeu
+                # représentée par `@arr`, et si la taille de la première ligne de la grille n'est pas
+                # nulle. Si ces conditions sont remplies, il effectue les actions suivantes :
                 if !@arr.flatten.index(PLAYER).nil? && !@arr.first.size.nil?
                     col_player = @arr.flatten.index(PLAYER) % @arr.first.size
                     @arr[@yBeamTest][col_player] = BEAM_TEST
@@ -102,9 +106,10 @@ class Main < Gosu::Window
         end
     end
    
+    
     ##
-    # The function "draw" is responsible for drawing the game area, text, and game over screen using
-    # the background image.
+    # La fonction « draw » de Ruby est responsable du rendu de divers éléments d'un jeu, notamment la
+    # zone de jeu, le texte, l'image d'arrière-plan et l'écran de jeu.
     def draw
        draw_area()
        draw_text()
@@ -115,7 +120,9 @@ class Main < Gosu::Window
        end
     end
 
-    # The `next_level` method is responsible for advancing the game to the next level.
+    
+    # La méthode `next_level` dans l'extrait de code Ruby fourni est chargée de faire passer le jeu au
+    # niveau suivant. Voici un aperçu de ce que fait cette méthode :
     def next_level
         @current_level += 1
         path = "maps/map_#@current_level.txt"

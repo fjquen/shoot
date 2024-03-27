@@ -1,5 +1,7 @@
-# The code is defining a Ruby module called `Constant`. Inside the module, there are several constants
-# defined, each representing a different value:
+
+# Cet extrait de code définit un module Ruby nommé « Constant » qui contient plusieurs constantes
+# liées à un jeu ou à une interface graphique. Chaque constante représente un caractère ou une valeur
+# spécifique utilisée dans le programme :
 module Constant
     BEAM_TEST = "#"
     BEAM = "|"

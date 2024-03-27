@@ -2,9 +2,10 @@ require './constant.rb'
 module Beam
     include Constant
     
+    
     ##
-    # The function `move_beam` moves a beam in a 2D array, updating the positions of the player and
-    # enemies accordingly.
+    # La fonction `move_beam` de Ruby est conçue pour déplacer un faisceau dans une grille de jeu en
+    # fonction de la position du joueur, mettant à jour la grille en conséquence.
     def move_beam()
         if @positionPlayer>0
             pos_row_player = @arr.flatten.index(PLAYER)
@@ -44,6 +45,9 @@ module Beam
     end
 
 
+    ##
+    # La fonction `gun_beam` parcourt un tableau 2D, déplaçant un faisceau vers le haut d'une position
+    # si certaines conditions sont remplies.
     def gun_beam()
         @arr.each_index do |y|
             @arr[y].each_index do |x|
